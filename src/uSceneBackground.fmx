@@ -1,0 +1,12 @@
+inherited SceneBackground: TSceneBackground
+  HitTest = False
+  object Rectangle1: TRectangle
+    Align = Client
+    Fill.Color = claBlack
+    HitTest = False
+    Size.Width = 320.000000000000000000
+    Size.Height = 240.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+  end
+end
