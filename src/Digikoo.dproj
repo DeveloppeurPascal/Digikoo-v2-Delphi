@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{2FA3CB0F-F704-49E5-8CBC-FBB0DD1A9410}</ProjectGuid>
+        <ProjectGuid>{0D7E1029-97DC-4A4F-B09B-41693F106F66}</ProjectGuid>
         <ProjectVersion>20.2</ProjectVersion>
         <FrameworkType>FMX</FrameworkType>
         <Base>True</Base>
@@ -696,6 +696,57 @@
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
+        <DCCReference Include="..\_PRIVATE\assets\v1_pictures\udmv1_pictures.pas">
+            <Form>dmv1_pictures</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fHomeScreen.pas">
+            <Form>HomeScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fGameScreen.pas">
+            <Form>GameScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fGameNextLevelScreen.pas">
+            <Form>GameNextLevelScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fGameOverWinScreen.pas">
+            <Form>GameOverWinScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fCreditsScreen.pas">
+            <Form>CreditsScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fOptionsScreen.pas">
+            <Form>OptionsScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fHallOfFameScreen.pas">
+            <Form>HallOfFameScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="fTrainingScreen.pas">
+            <Form>TrainingScreen</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\Samples\_SampleGame\ButtonsSamples\Sporgloo\_SporglooButtonAncestor.pas">
+            <Form>__SporglooButtonAncestor</Form>
+            <FormType>fmx</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="uDigikooGameData.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -1086,7 +1137,7 @@
                 <DeployFile LocalName="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.icns" Configuration="Debug" Class="ProjectOSXResource"/>
                 <DeployFile LocalName="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.icns" Configuration="Debug" Class="ProjectOSXResource">
                     <Platform Name="OSXARM64">
-                        <RemoteName>digikoo-nobackground.icns</RemoteName>
+                        <RemoteName>Digikoo.icns</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

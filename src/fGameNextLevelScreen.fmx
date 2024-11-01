@@ -1,0 +1,2 @@
+inherited GameNextLevelScreen: TGameNextLevelScreen
+end

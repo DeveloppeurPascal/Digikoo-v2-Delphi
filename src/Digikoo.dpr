@@ -86,7 +86,18 @@ uses
   uSVGBitmapManager_InputPrompts in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uSVGBitmapManager_InputPrompts.pas',
   uDMHelpBarManager in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uDMHelpBarManager.pas' {HelpBarManager: TDataModule},
   _ButtonsAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\_ButtonsAncestor.pas' {__ButtonAncestor: TFrame},
-  uSceneBackground in 'uSceneBackground.pas' {SceneBackground: TFrame};
+  uSceneBackground in 'uSceneBackground.pas' {SceneBackground: TFrame},
+  udmv1_pictures in '..\_PRIVATE\assets\v1_pictures\udmv1_pictures.pas' {dmv1_pictures: TDataModule},
+  fHomeScreen in 'fHomeScreen.pas' {HomeScreen: TFrame},
+  fGameScreen in 'fGameScreen.pas' {GameScreen: TFrame},
+  fGameNextLevelScreen in 'fGameNextLevelScreen.pas' {GameNextLevelScreen: TFrame},
+  fGameOverWinScreen in 'fGameOverWinScreen.pas' {GameOverWinScreen: TFrame},
+  fCreditsScreen in 'fCreditsScreen.pas' {CreditsScreen: TFrame},
+  fOptionsScreen in 'fOptionsScreen.pas' {OptionsScreen: TFrame},
+  fHallOfFameScreen in 'fHallOfFameScreen.pas' {HallOfFameScreen: TFrame},
+  fTrainingScreen in 'fTrainingScreen.pas' {TrainingScreen: TFrame},
+  _SporglooButtonAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\Samples\_SampleGame\ButtonsSamples\Sporgloo\_SporglooButtonAncestor.pas' {__SporglooButtonAncestor: TFrame},
+  uDigikooGameData in 'uDigikooGameData.pas';
 
 {$R *.res}
 
@@ -95,5 +106,6 @@ begin
   Application.Initialize;
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TDMGameControllerCenter, DMGameControllerCenter);
+  Application.CreateForm(Tdmv1_pictures, dmv1_pictures);
   Application.Run;
 end.

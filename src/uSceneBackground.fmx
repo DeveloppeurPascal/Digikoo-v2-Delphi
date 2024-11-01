@@ -2,7 +2,7 @@ inherited SceneBackground: TSceneBackground
   HitTest = False
   object Rectangle1: TRectangle
     Align = Client
-    Fill.Color = claBlack
+    Fill.Color = xFF404040
     HitTest = False
     Size.Width = 320.000000000000000000
     Size.Height = 240.000000000000000000
