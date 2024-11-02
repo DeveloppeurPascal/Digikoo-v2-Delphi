@@ -1,3 +1,35 @@
+/// <summary>
+/// ***************************************************************************
+///
+/// Digikoo
+///
+/// Copyright 2012-2024 Patrick Prémartin under AGPL 3.0 license.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS IN THE SOFTWARE.
+///
+/// ***************************************************************************
+///
+/// Author(s) :
+/// Patrick PREMARTIN
+///
+/// Site :
+/// https://digikoo.gamolf.fr/
+///
+/// Project site :
+/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+///
+/// ***************************************************************************
+/// File last update : 2024-11-02T19:37:22.000+01:00
+/// Signature : 1e48baa190e958b0a9f35269c21bc9a0c936e776
+/// ***************************************************************************
+/// </summary>
+
 unit fCreditsScreen;
 
 interface
@@ -33,7 +65,6 @@ type
     Layout2: TLayout;
     btnBack: T__SporglooButtonAncestor;
     procedure btnBackClick(Sender: TObject);
-    procedure FrameResized(Sender: TObject);
   private
   public
     procedure TranslateTexts(const Language: string); override;
@@ -69,15 +100,6 @@ begin
   tscene.Current := TSceneType.Home;
 end;
 
-procedure TCreditsScreen.FrameResized(Sender: TObject);
-begin
-  if Text1.Width > 700 then
-  begin
-    Text1.margins.Left := (Width - 700) / 2;
-    Text1.margins.right := Text1.margins.Left;
-  end;
-end;
-
 procedure TCreditsScreen.HideScene;
 begin
   inherited;
@@ -94,6 +116,12 @@ begin
   THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardEscape +
     TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
     TSVGInputPrompts.Tag, btnBack.Text);
+
+  if Text1.Width > 700 then
+  begin
+    Text1.margins.Left := (Width - 700) / 2;
+    Text1.margins.right := Text1.margins.Left;
+  end;
 end;
 
 procedure TCreditsScreen.TranslateTexts(const Language: string);

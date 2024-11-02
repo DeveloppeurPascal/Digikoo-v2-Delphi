@@ -1,2 +1,53 @@
 inherited GameScreen: TGameScreen
+  Size.Width = 862.000000000000000000
+  Size.Height = 522.000000000000000000
+  object Glyph1: TGlyph
+    Margins.Left = 10.000000000000000000
+    Margins.Top = 10.000000000000000000
+    Margins.Right = 10.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Align = Top
+    Position.X = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 842.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    ImageIndex = 39
+    Images = dmv1_pictures.ImageList
+  end
+  object Layout2: TLayout
+    Align = Contents
+    Size.Width = 862.000000000000000000
+    Size.Height = 522.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object lGameZone: TLayout
+      Align = Center
+      Size.Width = 200.000000000000000000
+      Size.Height = 200.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object glPlayerGrid: TGridLayout
+        Align = Client
+        ItemHeight = 64.000000000000000000
+        ItemWidth = 64.000000000000000000
+        Orientation = Horizontal
+        Size.Width = 200.000000000000000000
+        Size.Height = 150.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+      object flNumbers: TFlowLayout
+        Align = Bottom
+        Position.Y = 150.000000000000000000
+        Size.Width = 200.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        Justify = Left
+        JustifyLastLine = Left
+        FlowDirection = LeftToRight
+      end
+    end
+  end
 end

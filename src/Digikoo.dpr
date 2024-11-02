@@ -1,9 +1,9 @@
 ﻿/// <summary>
 /// ***************************************************************************
 ///
-/// Gamolf FMX Game Starter Kit
+/// Digikoo
 ///
-/// Copyright 2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2012-2024 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -15,28 +15,18 @@
 ///
 /// ***************************************************************************
 ///
-/// The "Gamolf FMX Game Starter Kit" is both a "technical" example of a video
-/// game developed in Delphi with everything you need inside and a reusable
-/// project template you can customize for your own games.
-///
-/// The files provided are fully functional. Numerous comments are included in
-/// the sources to explain how they work and what you need to copy, override
-/// or customize to make video games without starting from scratch.
-///
-/// ***************************************************************************
-///
 /// Author(s) :
 /// Patrick PREMARTIN
 ///
 /// Site :
-/// https://fmxgamestarterkit.developpeur-pascal.fr/
+/// https://digikoo.gamolf.fr/
 ///
 /// Project site :
-/// https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit
+/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 ///
 /// ***************************************************************************
-/// File last update : 2024-08-20T10:35:54.000+02:00
-/// Signature : cadecc1b4d025f19036832d980a0f8be872ace71
+/// File last update : 2024-11-02T15:50:26.000+01:00
+/// Signature : 934778dc788d4b99480b43d3b4a3820cca3b3a77
 /// ***************************************************************************
 /// </summary>
 
@@ -97,7 +87,8 @@ uses
   fHallOfFameScreen in 'fHallOfFameScreen.pas' {HallOfFameScreen: TFrame},
   fTrainingScreen in 'fTrainingScreen.pas' {TrainingScreen: TFrame},
   _SporglooButtonAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\Samples\_SampleGame\ButtonsSamples\Sporgloo\_SporglooButtonAncestor.pas' {__SporglooButtonAncestor: TFrame},
-  uDigikooGameData in 'uDigikooGameData.pas';
+  uDigikooGameData in 'uDigikooGameData.pas',
+  cNumberButton in 'cNumberButton.pas' {NumberButton: TFrame};
 
 {$R *.res}
 

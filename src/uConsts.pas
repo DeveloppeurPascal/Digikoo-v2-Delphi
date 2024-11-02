@@ -1,9 +1,9 @@
 ﻿/// <summary>
 /// ***************************************************************************
 ///
-/// Gamolf FMX Game Starter Kit
+/// Digikoo
 ///
-/// Copyright 2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2012-2024 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -15,28 +15,18 @@
 ///
 /// ***************************************************************************
 ///
-/// The "Gamolf FMX Game Starter Kit" is both a "technical" example of a video
-/// game developed in Delphi with everything you need inside and a reusable
-/// project template you can customize for your own games.
-///
-/// The files provided are fully functional. Numerous comments are included in
-/// the sources to explain how they work and what you need to copy, override
-/// or customize to make video games without starting from scratch.
-///
-/// ***************************************************************************
-///
 /// Author(s) :
 /// Patrick PREMARTIN
 ///
 /// Site :
-/// https://fmxgamestarterkit.developpeur-pascal.fr/
+/// https://digikoo.gamolf.fr/
 ///
 /// Project site :
-/// https://github.com/DeveloppeurPascal/Gamolf-FMX-Game-Starter-Kit
+/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 ///
 /// ***************************************************************************
-/// File last update : 2024-08-28T12:21:07.421+02:00
-/// Signature : 9d7097a165b68e0eff863e9b834d4f5d38c25430
+/// File last update : 2024-11-02T18:58:08.000+01:00
+/// Signature : d920851872939ec4cc35fa950c97b886ea57af4e
 /// ***************************************************************************
 /// </summary>
 
@@ -67,7 +57,8 @@ const
   /// <summary>
   /// The copyright to show in the About box
   /// </summary>
-  CAboutCopyright = '2012-2024 Patrick Prémartin'; // 2024 your name or anything else
+  CAboutCopyright = '2012-2024 Patrick Prémartin';
+  // 2024 your name or anything else
 
   /// <summary>
   /// The website URL of your game (used in the About box)
@@ -185,7 +176,8 @@ type
   /// Create scenes screens by inheriting from /Scenes/_SceneAncestor.pas
   /// </remarks>
   TSceneType = (None (* "None" must stay *) , Exit (* "Exit" must stay *) ,
-    Home, Game, GameNextLevel, GameOverWin, Credits, Options, HallOfFame, Training);
+    Home, Game, GameNextLevel, GameOverLost, GameOverWin, Credits, Options,
+    HallOfFame, Training);
 
 Const
   /// <summary>
@@ -265,7 +257,6 @@ try
   // Don't share the key file. If you need to modify it, you won't be able to
   // open the previous configuration file!
 {$I '..\_PRIVATE\src\GameDataFileXORKey.inc'}
-
 {$ENDIF}
 except
   on e: Exception do

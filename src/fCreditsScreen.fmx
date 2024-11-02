@@ -1,7 +1,6 @@
 inherited CreditsScreen: TCreditsScreen
   Size.Width = 883.000000000000000000
   Size.Height = 591.000000000000000000
-  OnResized = FrameResized
   object VertScrollBox1: TVertScrollBox
     Align = Client
     Size.Width = 883.000000000000000000

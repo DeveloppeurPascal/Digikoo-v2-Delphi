@@ -1,2 +1,86 @@
 inherited TrainingScreen: TTrainingScreen
+  Size.Width = 615.000000000000000000
+  Size.Height = 468.000000000000000000
+  object VertScrollBox1: TVertScrollBox
+    Align = Client
+    Size.Width = 615.000000000000000000
+    Size.Height = 468.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 615.000000000000000000
+    Viewport.Height = 468.000000000000000000
+    object Glyph1: TGlyph
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Align = Top
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 595.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 39
+      Images = dmv1_pictures.ImageList
+    end
+    object lNumbersParent: TLayout
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 130.000000000000000000
+      Size.Width = 595.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      object lNumbers: TLayout
+        Align = HorzCenter
+        Position.X = 256.000000000000000000
+        Size.Width = 82.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+    end
+    object Layout3: TLayout
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 200.000000000000000000
+      Size.Width = 595.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Layout4: TLayout
+        Align = HorzCenter
+        Position.X = 202.000000000000000000
+        Size.Width = 190.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        inline btnBack: T__SporglooButtonAncestor
+          Position.Y = 1.000000000000000000
+          Size.Width = 190.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = btnBackClick
+          inherited rDown: TRectangle
+            inherited txtDown: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited rUp: TRectangle
+            inherited txtUp: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+      end
+    end
+  end
 end

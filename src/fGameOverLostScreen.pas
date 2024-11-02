@@ -1,9 +1,9 @@
-/// <summary>
+ï»¿/// <summary>
 /// ***************************************************************************
 ///
 /// Digikoo
 ///
-/// Copyright 2012-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2012-2024 Patrick PrÃ©martin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -25,33 +25,50 @@
 /// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 ///
 /// ***************************************************************************
-/// File last update : 2024-11-01T17:27:28.000+01:00
-/// Signature : e65269c5283f87d36f81329b3a2647de1d76147c
+/// File last update : 2024-11-02T18:59:48.000+01:00
+/// Signature : f6dbf77c49d02664752452791f4cbb15bc9b4f91
 /// ***************************************************************************
 /// </summary>
 
-unit cMenuButton;
+unit fGameOverLostScreen;
 
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants, 
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
-  _ButtonsAncestor;
+  _ScenesAncestor;
 
 type
-  TMenuButton = class(T__ButtonAncestor)
+  TGameOverLostScreen = class(T__SceneAncestor)
   private
-    { Déclarations privées }
   public
-    { Déclarations publiques }
   end;
-
-var
-  MenuButton: TMenuButton;
 
 implementation
 
 {$R *.fmx}
+
+uses
+  System.Messaging,
+  uConsts,
+  uScene;
+
+initialization
+
+TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
+  procedure(const Sender: TObject; const Msg: TMessage)
+  var
+    NewScene: TGameOverLostScreen;
+  begin
+    if (Msg is TSceneFactory) and
+      ((Msg as TSceneFactory).SceneType = TSceneType.GameOverLost) then
+    begin
+      NewScene := TGameOverLostScreen.Create(application.mainform);
+      NewScene.Parent := application.mainform;
+      tscene.RegisterScene(TSceneType.GameOverLost, NewScene);
+    end;
+  end);
 
 end.
