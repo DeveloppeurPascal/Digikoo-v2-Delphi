@@ -10,4 +10,4 @@
 * Mise en place de l'écran d'accueil (hors appel de la partie)
 * Mise en place de l'écran des options (à compléter)
 * Mise en place de l'écran des crédits
-* Mise en place de l'écran des scores (à compléter
+* Mise en place de l'écran des scores (à compléter)
