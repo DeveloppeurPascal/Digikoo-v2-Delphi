@@ -82,7 +82,8 @@ uses
   uConsts,
   uScene,
   uUIElements,
-  uDigikooGameData;
+  uDigikooGameData,
+  uSoundEffects;
 
 procedure TGameNextLevelScreen.BeforeFirstShowScene;
 begin
@@ -112,6 +113,8 @@ begin
     Text1.margins.Left := (Width - 500) / 2;
     Text1.margins.right := Text1.margins.Left;
   end;
+
+  TSoundEffects.Current.Play(TSoundEffectType.Victoire);
 end;
 
 procedure TGameNextLevelScreen.TranslateTexts(const Language: string);
