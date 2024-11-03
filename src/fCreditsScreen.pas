@@ -65,6 +65,7 @@ type
     Layout2: TLayout;
     btnBack: T__SporglooButtonAncestor;
     procedure btnBackClick(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
   public
     procedure TranslateTexts(const Language: string); override;
@@ -98,6 +99,27 @@ begin
   tscene.Current := TSceneType.Home;
 end;
 
+procedure TCreditsScreen.FrameResized(Sender: TObject);
+var
+  w: single;
+begin
+  if width > 700 then
+    w := 700
+  else
+    w := width - 20;
+
+  if Text1.width > w then
+  begin
+    Text1.margins.Left := (width - w) / 2;
+    Text1.margins.right := Text1.margins.Left;
+  end
+  else
+  begin
+    Text1.margins.Left := (width - Text1.width) / 2;
+    Text1.margins.right := Text1.margins.Left;
+  end;
+end;
+
 procedure TCreditsScreen.HideScene;
 begin
   inherited;
@@ -110,11 +132,7 @@ begin
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnBack, nil, nil, nil, nil, true, true);
 
-  if Text1.Width > 700 then
-  begin
-    Text1.margins.Left := (Width - 700) / 2;
-    Text1.margins.right := Text1.margins.Left;
-  end;
+  FrameResized(self);
 end;
 
 procedure TCreditsScreen.TranslateTexts(const Language: string);
