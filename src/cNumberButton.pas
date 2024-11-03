@@ -120,6 +120,8 @@ end;
 procedure TNumberButton.SetNumber(const Value: integer);
 begin
   FNumber := Value;
+  if (FNumber < 1) then
+    FColor := TNumberButtonColor.Yellow;
   Repaint;
 end;
 
