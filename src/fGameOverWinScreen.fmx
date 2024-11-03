@@ -1,2 +1,81 @@
 inherited GameOverWinScreen: TGameOverWinScreen
+  Size.Width = 797.000000000000000000
+  Size.Height = 593.000000000000000000
+  OnResized = FrameResized
+  object VertScrollBox1: TVertScrollBox
+    Align = Client
+    Size.Width = 797.000000000000000000
+    Size.Height = 593.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Viewport.Width = 797.000000000000000000
+    Viewport.Height = 593.000000000000000000
+    object Glyph1: TGlyph
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Align = Top
+      Position.X = 10.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 777.000000000000000000
+      Size.Height = 100.000000000000000000
+      Size.PlatformDefault = False
+      ImageIndex = 39
+      Images = dmv1_pictures.ImageList
+    end
+    object Text1: TText
+      Align = Top
+      AutoSize = True
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 130.000000000000000000
+      Size.Width = 777.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.FontColor = claGainsboro
+      TextSettings.VertAlign = Leading
+    end
+    object Layout1: TLayout
+      Align = Top
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 10.000000000000000000
+      Position.Y = 200.000000000000000000
+      Size.Width = 777.000000000000000000
+      Size.Height = 80.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object Layout2: TLayout
+        Align = HorzCenter
+        Position.X = 293.000000000000000000
+        Size.Width = 190.000000000000000000
+        Size.Height = 80.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        inline btnEndGame: T__SporglooButtonAncestor
+          Position.Y = 1.000000000000000000
+          Size.Width = 190.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = btnEndGameClick
+          inherited rDown: TRectangle
+            inherited txtDown: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited rUp: TRectangle
+            inherited txtUp: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+      end
+    end
+  end
 end
