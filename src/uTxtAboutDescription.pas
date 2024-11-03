@@ -53,11 +53,20 @@ Digikoo offers all fans of numbers and Sudoku the chance to play with their neur
 The rule is simple: put the same number only once per row and column on grids ranging from 2x2 to 9x9 squares.
 
 *****************
-* Publisher info
+* Credits
 
 This application was developed by Patrick Prémartin in Delphi.
 
-It is published by OLF SOFTWARE, a company registered in Paris (France) under the reference 439521725.
+The game's graphics are courtesy of Kenney, Pictogrammers and CEI. They are used under license.
+
+Background sounds are from the GSP 500 Noises compilation released on CD-Rom in 1995.
+
+The background music is by Erin and Ginny Culp. Used under license, its reuse outside this video game is not authorized without prior written consent.
+
+*****************
+* Publisher info
+
+This video game is published by OLF SOFTWARE, a company registered in Paris (France) under the reference 439521725.
 
 ****************
 * Personal data
@@ -84,11 +93,20 @@ Digikoo propose à tous les amateurs de chiffres et de Sudoku de jouer avec leur
 La règle est simple : ne mettre qu'une seule fois le même chiffre par ligne et colonne sur des grilles s'enchainant de 2x2 à 9x9 cases.
 
 *****************
-* Info éditeur
+* Remerciements
 
 Cette application a été développée par Patrick Prémartin en Delphi.
 
-Elle est éditée par OLF SOFTWARE, société enregistrée à Paris (France) sous la référence 439521725.
+Les éléments graphiques du jeu proviennent de Kenney, Pictogrammers et le CEI. Ils sont utilisés sous licence.
+
+Les sons d'ambiance proviennent de la compilation GSP 500 Noises diffusée sur CD-Rom en 1995.
+
+La musique de fond est de Erin et Ginny Culp. Utilisée sous licence, sa réutilisation en dehors de ce jeu vidéo n'est pas autorisée sans accord écrit préalable.
+
+*****************
+* Info éditeur
+
+Ce jeu vidéo est éditée par OLF SOFTWARE, société enregistrée à Paris (France) sous la référence 439521725.
 
 ****************
 * Données personnelles
