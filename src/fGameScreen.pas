@@ -212,8 +212,13 @@ begin
           DigikooGameData.score := DigikooGameData.score + 1;
           if (DigikooGameData.Level = DigikooGameData.NbCases) then
           begin
-            DigikooGameData.NbCases := DigikooGameData.NbCases + 1;
-            DigikooGameData.Level := 1;
+            if (DigikooGameData.NbCases < 9) then
+            begin
+              DigikooGameData.NbCases := DigikooGameData.NbCases + 1;
+              DigikooGameData.Level := 1;
+            end
+            else
+              tscene.Current := TSceneType.GameOverWin;
           end
           else
             DigikooGameData.Level := DigikooGameData.Level + 1;
