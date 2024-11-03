@@ -143,18 +143,6 @@ begin
     result := CTxtEN
   else if (lng = 'fr') then // France
     result := CTxtFR
-    // TODO : add your translations here
-    // else if (lng = 'it') then // Italy
-    // result := CTxtIT
-    // else if (lng = 'de') then // Germany
-    // result := CTxtDE
-    // else if (lng = 'jp') then // Japan
-    // result := CTxtJP
-    // else if (lng = 'pt') then // Portugal
-    // result := CTxtPT
-    // else if (lng = 'es') then // Spain
-    // result := CTxtES
-    // etc...
   else if not Recursif then
     result := GetTxtAboutDescription(CDefaultLanguage, true)
   else
