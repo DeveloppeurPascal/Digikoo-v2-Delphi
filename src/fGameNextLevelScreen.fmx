@@ -1,6 +1,7 @@
 inherited GameNextLevelScreen: TGameNextLevelScreen
   Size.Width = 828.000000000000000000
   Size.Height = 569.000000000000000000
+  OnResized = FrameResized
   object VertScrollBox1: TVertScrollBox
     Align = Client
     Size.Width = 828.000000000000000000
@@ -36,7 +37,6 @@ inherited GameNextLevelScreen: TGameNextLevelScreen
       Size.Height = 50.000000000000000000
       Size.PlatformDefault = False
       TextSettings.FontColor = claGainsboro
-      TextSettings.HorzAlign = Leading
       TextSettings.VertAlign = Leading
     end
     object Layout1: TLayout

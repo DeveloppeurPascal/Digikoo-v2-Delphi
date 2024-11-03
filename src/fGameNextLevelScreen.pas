@@ -65,6 +65,7 @@ type
     Layout2: TLayout;
     btnNextLevel: T__SporglooButtonAncestor;
     procedure btnNextLevelClick(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
   public
     procedure TranslateTexts(const Language: string); override;
@@ -96,6 +97,27 @@ begin
   TScene.Current := TSceneType.game;
 end;
 
+procedure TGameNextLevelScreen.FrameResized(Sender: TObject);
+var
+  w: single;
+begin
+  if width > 500 then
+    w := 500
+  else
+    w := width - 20;
+
+  if Text1.width > w then
+  begin
+    Text1.margins.Left := (width - w) / 2;
+    Text1.margins.right := Text1.margins.Left;
+  end
+  else
+  begin
+    Text1.margins.Left := (width - Text1.width) / 2;
+    Text1.margins.right := Text1.margins.Left;
+  end;
+end;
+
 procedure TGameNextLevelScreen.HideScene;
 begin
   inherited;
@@ -108,13 +130,9 @@ begin
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnNextLevel, nil, nil, nil, nil, true, true);
 
-  if Text1.Width > 500 then
-  begin
-    Text1.margins.Left := (Width - 500) / 2;
-    Text1.margins.right := Text1.margins.Left;
-  end;
-
   TSoundEffects.Current.Play(TSoundEffectType.Victoire);
+
+  FrameResized(self);
 end;
 
 procedure TGameNextLevelScreen.TranslateTexts(const Language: string);
