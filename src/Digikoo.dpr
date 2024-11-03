@@ -88,7 +88,8 @@ uses
   fTrainingScreen in 'fTrainingScreen.pas' {TrainingScreen: TFrame},
   _SporglooButtonAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\Samples\_SampleGame\ButtonsSamples\Sporgloo\_SporglooButtonAncestor.pas' {__SporglooButtonAncestor: TFrame},
   uDigikooGameData in 'uDigikooGameData.pas',
-  cNumberButton in 'cNumberButton.pas' {NumberButton: TFrame};
+  cNumberButton in 'cNumberButton.pas' {NumberButton: TFrame},
+  fGameOverLostScreen in 'fGameOverLostScreen.pas' {GameOverLostScreen: TFrame};
 
 {$R *.res}
 
