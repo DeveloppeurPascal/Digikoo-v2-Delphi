@@ -63,15 +63,18 @@ type
     FNumber: integer;
     FCol: integer;
     FRow: integer;
+    FCount: byte;
     procedure SetColor(const Value: TNumberButtonColor);
     procedure SetNumber(const Value: integer);
     procedure SetCol(const Value: integer);
     procedure SetRow(const Value: integer);
+    procedure SetCount(const Value: byte);
   public
     property Number: integer read FNumber write SetNumber;
     property Color: TNumberButtonColor read FColor write SetColor;
     property Col: integer read FCol write SetCol;
     property Row: integer read FRow write SetRow;
+    property Count: byte read FCount write SetCount;
     constructor Create(AOwner: TComponent); override;
     procedure Repaint; override;
   end;
@@ -88,22 +91,27 @@ begin
   FRow := -1;
   FNumber := 0;
   FColor := TNumberButtonColor.Yellow;
+  FCount := 1;
   Repaint;
 end;
 
 procedure TNumberButton.Repaint;
 begin
-  case FNumber of
-    - 1:
-      Glyph1.ImageIndex := 37; // croix
-    0:
-      Glyph1.ImageIndex := 36; // vide
-    1 .. 9:
-      Glyph1.ImageIndex := (FNumber - 1) * 4 + ord(FColor);
-  else
-    raise Exception.Create('Wrong number value.');
+  visible := (FCount > 0);
+  if visible then
+  begin
+    case FNumber of
+      - 1:
+        Glyph1.ImageIndex := 37; // croix
+      0:
+        Glyph1.ImageIndex := 36; // vide
+      1 .. 9:
+        Glyph1.ImageIndex := (FNumber - 1) * 4 + ord(FColor);
+    else
+      raise Exception.Create('Wrong number value.');
+    end;
+    Rectangle1.visible := IsFocused;
   end;
-  Rectangle1.Visible := IsFocused;
 end;
 
 procedure TNumberButton.SetCol(const Value: integer);
@@ -114,6 +122,14 @@ end;
 procedure TNumberButton.SetColor(const Value: TNumberButtonColor);
 begin
   FColor := Value;
+  Repaint;
+end;
+
+procedure TNumberButton.SetCount(const Value: byte);
+begin
+  FCount := Value;
+  if FCount < 1 then
+    FColor := TNumberButtonColor.Yellow;
   Repaint;
 end;
 
