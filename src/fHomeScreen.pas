@@ -112,6 +112,7 @@ begin
   THelpBarManager.Current.TextSettings.FontColor := talphacolors.Whitesmoke;
   THelpBarManager.Current.HorzAlign := TDGEFMXHelpBarHorzAlign.Center;
 {$ENDIF}
+  TDigikooGameData(TDigikooGameData.DefaultGameData).Load;
 end;
 
 procedure THomeScreen.CenterTheButtonsLayout;
