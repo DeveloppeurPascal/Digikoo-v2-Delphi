@@ -57,11 +57,12 @@ type
   TNumberButtonArray = array [1 .. 9] of TNumberButton;
 
   TGameScreen = class(T__SceneAncestor)
-    lGameZone: TLayout;
     glPlayerGrid: TGridLayout;
     flNumbers: TFlowLayout;
-    Glyph1: TGlyph;
+    gTitle: TGlyph;
     Layout2: TLayout;
+    slGameZone: TScaledLayout;
+    procedure FrameResized(Sender: TObject);
   private
     CurrentNumber: integer;
     Grid: TNumberButtonGrid;
@@ -72,6 +73,7 @@ type
   public
     procedure ShowScene; override;
     procedure HideScene; override;
+    procedure RefreshGameGridSize;
   end;
 
 implementation
@@ -89,6 +91,11 @@ uses
   uDigikooGameData;
 
 { TGameScreen }
+
+procedure TGameScreen.FrameResized(Sender: TObject);
+begin
+  RefreshGameGridSize;
+end;
 
 procedure TGameScreen.HideScene;
 begin
@@ -217,6 +224,24 @@ begin
   end;
 end;
 
+procedure TGameScreen.RefreshGameGridSize;
+var
+  r: single;
+begin
+  slGameZone.Width := slGameZone.OriginalWidth;
+  slGameZone.Height := slGameZone.OriginalHeight;
+  while (slGameZone.Width >= Width - 20) or
+    (slGameZone.Height >= Height - 20) do
+  begin
+    r := (slGameZone.Width - 10) / slGameZone.OriginalWidth;
+    slGameZone.Width := slGameZone.Width - 10;
+    slGameZone.Height := slGameZone.OriginalHeight * r;
+  end;
+
+  gTitle.visible := (slGameZone.Position.y > gTitle.Position.y + gTitle.Height +
+    gTitle.margins.Bottom);
+end;
+
 procedure TGameScreen.SelectANumberClick(Sender: TObject);
 var
   btn: TNumberButton;
@@ -266,7 +291,7 @@ begin
     end);
   item.KeyShortcuts.Add(vkEscape, #0, []);
   item.KeyShortcuts.Add(vkHardwareBack, #0, []);
-  item.GamePadButtons := [TJoystickButtons.x];
+  item.GamePadButtons := [TJoystickButtons.X];
   item.TagObject := self;
 
   while (glPlayerGrid.ChildrenCount > 0) do
@@ -284,8 +309,8 @@ begin
     begin
       FirstTime := false;
       flNumbers.Height := btn.Height;
-      lGameZone.Width := NbCases * btn.Width;
-      lGameZone.Height := NbCases * btn.Height + flNumbers.Height;
+      slGameZone.OriginalWidth := NbCases * btn.Width;
+      slGameZone.OriginalHeight := NbCases * btn.Height + flNumbers.Height;
       glPlayerGrid.ItemWidth := btn.Width;
       glPlayerGrid.ItemHeight := btn.Height;
     end;
@@ -315,6 +340,8 @@ begin
   // TODO : gérer les éléments au clavier (UIElements pour grille et chiffres à placer dessus)
 
   CurrentNumber := 0;
+
+  RefreshGameGridSize;
 end;
 
 initialization

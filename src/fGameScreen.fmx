@@ -1,7 +1,9 @@
 inherited GameScreen: TGameScreen
   Size.Width = 862.000000000000000000
   Size.Height = 522.000000000000000000
-  object Glyph1: TGlyph
+  OnResized = FrameResized
+  object gTitle: TGlyph
+    AutoHide = False
     Margins.Left = 10.000000000000000000
     Margins.Top = 10.000000000000000000
     Margins.Right = 10.000000000000000000
@@ -21,26 +23,23 @@ inherited GameScreen: TGameScreen
     Size.Height = 522.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
-    object lGameZone: TLayout
+    object slGameZone: TScaledLayout
       Align = Center
-      Size.Width = 200.000000000000000000
-      Size.Height = 200.000000000000000000
-      Size.PlatformDefault = False
-      TabOrder = 0
+      OriginalWidth = 50.000000000000000000
+      OriginalHeight = 50.000000000000000000
       object glPlayerGrid: TGridLayout
         Align = Client
         ItemHeight = 64.000000000000000000
         ItemWidth = 64.000000000000000000
         Orientation = Horizontal
-        Size.Width = 200.000000000000000000
-        Size.Height = 150.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 0.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
       end
       object flNumbers: TFlowLayout
         Align = Bottom
-        Position.Y = 150.000000000000000000
-        Size.Width = 200.000000000000000000
+        Size.Width = 50.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
