@@ -35,15 +35,26 @@ unit fGameOverLostScreen;
 interface
 
 uses
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.SysUtils,
+  System.Types,
+  System.UITypes,
+  System.Classes,
   System.Variants,
-  FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Types,
+  FMX.Graphics,
+  FMX.Controls,
+  FMX.Forms,
+  FMX.Dialogs,
+  FMX.StdCtrls,
   _ScenesAncestor;
 
 type
   TGameOverLostScreen = class(T__SceneAncestor)
   private
   public
+    procedure TranslateTexts(const Language: string); override;
+    procedure ShowScene; override;
+    procedure HideScene; override;
   end;
 
 implementation
@@ -53,7 +64,30 @@ implementation
 uses
   System.Messaging,
   uConsts,
-  uScene;
+  uScene,
+  uSoundEffects;
+
+{ TGameOverLostScreen }
+
+procedure TGameOverLostScreen.HideScene;
+begin
+  inherited;
+  // TODO : à compléter
+end;
+
+procedure TGameOverLostScreen.ShowScene;
+begin
+  inherited;
+  // TODO : à compléter
+
+  TSoundEffects.Current.Play(TSoundEffectType.Defaite);
+end;
+
+procedure TGameOverLostScreen.TranslateTexts(const Language: string);
+begin
+  inherited;
+  // TODO : à compléter
+end;
 
 initialization
 
