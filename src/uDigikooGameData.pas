@@ -51,9 +51,11 @@ type
   TGameMode = (Training, Game);
 
   TDigikooGameData = class(TGameData)
-  private
+  private const
+    CDigikooGameDataVersion = 1;
+
+  var
     FModeDeJeu: TGameMode;
-    function GetModeDeJeu: int64;
     function GetNbCases: int64;
     procedure SetNbCases(const Value: int64);
     procedure SetModeDeJeu(const Value: TGameMode);
@@ -77,14 +79,46 @@ type
     procedure NewGrid;
     procedure SaveToStream(const AStream: TStream); override;
     procedure LoadFromStream(const AStream: TStream); override;
+    procedure PauseGame; override;
+    procedure StopGame; override;
+    procedure Load;
+    function GetFilePath: string;
+    procedure Clear; override;
+    constructor Create; override;
   end;
 
 implementation
+
+uses
+  System.IOutils,
+  System.SysUtils;
 
 var
   LDefaultGameData: TDigikooGameData;
 
   { TDigikooGameData }
+
+procedure TDigikooGameData.Clear;
+var
+  i, j: integer;
+begin
+  inherited;
+  FModeDeJeu := TGameMode.Training;
+  for i := 1 to 9 do
+    for j := 1 to 9 do
+      PlayerGrid[i, j].Number := 0;
+end;
+
+constructor TDigikooGameData.Create;
+var
+  i, j: integer;
+begin
+  inherited;
+  FModeDeJeu := TGameMode.Training;
+  for i := 1 to 9 do
+    for j := 1 to 9 do
+      PlayerGrid[i, j].Number := 0;
+end;
 
 class function TDigikooGameData.DefaultGameData: TGameData;
 begin
@@ -93,9 +127,9 @@ begin
   result := LDefaultGameData;
 end;
 
-function TDigikooGameData.GetModeDeJeu: int64;
+function TDigikooGameData.GetFilePath: string;
 begin
-  result := Score;
+  result := tpath.combine(path, 'digikoo.game');
 end;
 
 function TDigikooGameData.GetNbCases: int64;
@@ -162,16 +196,61 @@ begin
         PlayerGrid[i, j].Number := 0;
 end;
 
-procedure TDigikooGameData.LoadFromStream(const AStream: TStream);
+procedure TDigikooGameData.PauseGame;
 begin
   inherited;
-  // TOdo : à compléter (grille + mode de jeu  à charger)
+  SaveToFile(GetFilePath);
+end;
+
+procedure TDigikooGameData.Load;
+begin
+  try
+    LoadFromFile(GetFilePath);
+  except
+    Clear;
+  end;
+end;
+
+procedure TDigikooGameData.LoadFromStream(const AStream: TStream);
+var
+  VersionNum: integer;
+begin
+  inherited;
+
+  // Check if the game data file has a block version number.
+  if (sizeof(VersionNum) <> AStream.read(VersionNum, sizeof(VersionNum))) then
+    raise exception.Create('Wrong File format !');
+
+  // Check if the program can open the game data.
+  if (VersionNum > CDigikooGameDataVersion) then
+    raise exception.Create
+      ('Can''t open this file. Please update the game before trying again.');
+
+  if (VersionNum >= 1) then
+  begin
+    // Load the game mode
+    if (sizeof(FModeDeJeu) <> AStream.read(FModeDeJeu, sizeof(FModeDeJeu))) then
+      raise exception.Create('Wrong File format !');
+    // Load the game grid
+    if (sizeof(PlayerGrid) <> AStream.read(PlayerGrid, sizeof(PlayerGrid))) then
+      raise exception.Create('Wrong File format !');
+  end;
+
+  FHasChanged := false;
+
+  FIsPaused := true;
 end;
 
 procedure TDigikooGameData.SaveToStream(const AStream: TStream);
+var
+  VersionNum: integer;
 begin
   inherited;
-  // TOdo : à compléter (grille + mode de jeu à archiver)
+  VersionNum := CDigikooGameDataVersion;
+  AStream.Write(VersionNum, sizeof(VersionNum));
+  AStream.Write(FModeDeJeu, sizeof(FModeDeJeu));
+  AStream.Write(PlayerGrid, sizeof(PlayerGrid));
+  FHasChanged := false;
 end;
 
 procedure TDigikooGameData.SetModeDeJeu(const Value: TGameMode);
@@ -207,6 +286,13 @@ begin
   ModeDeJeu := TGameMode.Training;
 
   NewGrid;
+end;
+
+procedure TDigikooGameData.StopGame;
+begin
+  inherited;
+  if tfile.Exists(GetFilePath) then
+    tfile.delete(GetFilePath);
 end;
 
 initialization
