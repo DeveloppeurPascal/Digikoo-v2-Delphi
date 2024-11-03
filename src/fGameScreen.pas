@@ -138,7 +138,9 @@ begin
               end;
         btn.tag := btn.Number;
         btn.Number := 0;
-      end;
+      end
+      else
+        btn.tag := 0;
 
       if (CurrentNumber > 0) and (CurrentNumber <> btn.tag) then
       begin
@@ -149,16 +151,22 @@ begin
           if (k <> btn.col) and (btn.Number = Grid[k, btn.row].Number) then
           begin
             Found := true;
-            Grid[k, btn.row].Color := TNumberButtonColor.Red;
-            DigikooGameData.PlayerGrid[k, btn.row].Color :=
-              TNumberButtonColor.Red;
+            if not(Grid[k, btn.row].Color = TNumberButtonColor.Grey) then
+            begin
+              Grid[k, btn.row].Color := TNumberButtonColor.Red;
+              DigikooGameData.PlayerGrid[k, btn.row].Color :=
+                TNumberButtonColor.Red;
+            end;
           end;
           if (k <> btn.row) and (btn.Number = Grid[btn.col, k].Number) then
           begin
             Found := true;
-            Grid[btn.col, k].Color := TNumberButtonColor.Red;
-            DigikooGameData.PlayerGrid[btn.col, k].Color :=
-              TNumberButtonColor.Red;
+            if not(Grid[btn.col, k].Color = TNumberButtonColor.Grey) then
+            begin
+              Grid[btn.col, k].Color := TNumberButtonColor.Red;
+              DigikooGameData.PlayerGrid[btn.col, k].Color :=
+                TNumberButtonColor.Red;
+            end;
           end;
         end;
         if Found then
