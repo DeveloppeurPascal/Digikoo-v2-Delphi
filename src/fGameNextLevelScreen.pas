@@ -118,22 +118,29 @@ begin
 end;
 
 procedure TGameNextLevelScreen.TranslateTexts(const Language: string);
+var
+  s: string;
 begin
   inherited;
   if (Language = 'fr') then
   begin
     btnNextLevel.Text := 'Niveau suivant';
-    Text1.Text := 'Bien joué !' + slinebreak + slinebreak + 'Votre score : ' +
-      TDigikooGameData.DefaultGameData.score.ToString + slinebreak + slinebreak
-      + 'Passons à la suivante.';
+    s := 'Bien joué !' + slinebreak + slinebreak;
+    if (TDigikooGameData.DefaultGameData.score > 0) then
+      s := s + 'Votre score : ' + TDigikooGameData.DefaultGameData.score.
+        ToString + slinebreak + slinebreak;
+    s := s + 'Passons à la grille suivante.';
   end
   else
   begin
     btnNextLevel.Text := 'Next level';
-    Text1.Text := 'Well done !' + slinebreak + slinebreak + 'Your score : ' +
-      TDigikooGameData.DefaultGameData.score.ToString + slinebreak + slinebreak
-      + 'Go to next grid.';
+    s := 'Well done !' + slinebreak + slinebreak;
+    if (TDigikooGameData.DefaultGameData.score > 0) then
+      s := s + 'Your score : ' + TDigikooGameData.DefaultGameData.score.ToString
+        + slinebreak + slinebreak;
+    s := s + 'Go to next grid.';
   end;
+  Text1.Text := s;
 end;
 
 initialization
