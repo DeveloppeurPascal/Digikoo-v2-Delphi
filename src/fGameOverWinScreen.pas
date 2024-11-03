@@ -52,6 +52,9 @@ type
   TGameOverWinScreen = class(T__SceneAncestor)
   private
   public
+    procedure TranslateTexts(const Language: string); override;
+    procedure ShowScene; override;
+    procedure HideScene; override;
   end;
 
 implementation
@@ -62,6 +65,26 @@ uses
   System.Messaging,
   uConsts,
   uScene;
+
+{ TGameOverWinScreen }
+
+procedure TGameOverWinScreen.HideScene;
+begin
+  inherited;
+  // TODO : à compléter
+end;
+
+procedure TGameOverWinScreen.ShowScene;
+begin
+  inherited;
+  // TODO : à compléter
+end;
+
+procedure TGameOverWinScreen.TranslateTexts(const Language: string);
+begin
+  inherited;
+  // TODO : à compléter
+end;
 
 initialization
 
