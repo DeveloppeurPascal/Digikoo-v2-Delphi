@@ -101,7 +101,6 @@ begin
     btn.OnClick := btnNumberClick;
     btn.Color := TNumberButtonColor.Grey;
     btn.Number := i;
-    btn.CanFocus := true;
     y := y + btn.Height + 10;
   end;
   lNumbersParent.Height := y - 10;
