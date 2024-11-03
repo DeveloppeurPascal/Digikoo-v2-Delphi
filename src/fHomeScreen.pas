@@ -189,20 +189,24 @@ begin
     TUIItemsList.Current.AddControl(btnTraining, nil, nil, btnContinue, nil);
     TUIItemsList.Current.AddControl(btnContinue, btnTraining, nil, btnPlay,
       nil, true);
-    TUIItemsList.Current.AddControl(btnPlay, btnContinue, nil,
-      btnHallOfFame, nil);
+    TUIItemsList.Current.AddControl(btnPlay, btnContinue, nil, btnCredits, nil);
+    // TUIItemsList.Current.AddControl(btnPlay, btnContinue, nil,
+    // btnHallOfFame, nil);
   end
   else
   begin
     btnContinue.visible := false;
     TUIItemsList.Current.AddControl(btnTraining, nil, nil, btnPlay, nil);
-    TUIItemsList.Current.AddControl(btnPlay, btnTraining, nil, btnHallOfFame,
+    TUIItemsList.Current.AddControl(btnPlay, btnTraining, nil, btnCredits,
       nil, true);
+    // TUIItemsList.Current.AddControl(btnPlay, btnTraining, nil, btnHallOfFame,
+    // nil, true);
   end;
 
-  TUIItemsList.Current.AddControl(btnHallOfFame, btnPlay, nil, btnOptions, nil);
-  TUIItemsList.Current.AddControl(btnOptions, btnHallOfFame, nil,
-    btnCredits, nil);
+  btnHallOfFame.visible := false; // TODO : à réactiver quand l'écran sera fini
+  // TUIItemsList.Current.AddControl(btnHallOfFame, btnPlay, nil, btnOptions, nil);
+  btnOptions.visible := false; // TODO : à réactiver quand l'écran sera fini
+  // TUIItemsList.Current.AddControl(btnOptions, btnHallOfFame, nil, btnCredits, nil);
 {$IF Defined(IOS) or Defined(Android)}
   btnQuitter.visible := false;
 {$ELSE}
@@ -210,8 +214,9 @@ begin
 {$ENDIF}
   if btnQuitter.visible then
   begin
-    TUIItemsList.Current.AddControl(btnCredits, btnOptions, nil,
-      btnQuitter, nil);
+    TUIItemsList.Current.AddControl(btnCredits, btnPlay, nil, btnQuitter, nil);
+    // TUIItemsList.Current.AddControl(btnCredits, btnOptions, nil,
+    // btnQuitter, nil);
     TUIItemsList.Current.AddControl(btnQuitter, btnCredits, nil, nil, nil,
       false, true);
   end
