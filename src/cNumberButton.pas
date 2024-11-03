@@ -119,9 +119,14 @@ end;
 
 procedure TNumberButton.SetNumber(const Value: integer);
 begin
-  FNumber := Value;
+  if not((Value in [0 .. 9]) or (Value = -1)) then
+    FNumber := 0
+  else
+    FNumber := Value;
+
   if (FNumber < 1) then
     FColor := TNumberButtonColor.Yellow;
+
   Repaint;
 end;
 
