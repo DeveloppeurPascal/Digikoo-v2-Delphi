@@ -1,6 +1,7 @@
 inherited HomeScreen: THomeScreen
   Size.Width = 630.000000000000000000
   Size.Height = 583.000000000000000000
+  OnResized = FrameResized
   object VertScrollBox1: TVertScrollBox
     Align = Client
     Size.Width = 630.000000000000000000
@@ -9,7 +10,7 @@ inherited HomeScreen: THomeScreen
     TabOrder = 0
     Viewport.Width = 630.000000000000000000
     Viewport.Height = 583.000000000000000000
-    object Glyph1: TGlyph
+    object gTitle: TGlyph
       Margins.Left = 10.000000000000000000
       Margins.Top = 10.000000000000000000
       Margins.Right = 10.000000000000000000

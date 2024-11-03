@@ -55,7 +55,7 @@ uses
 
 type
   THomeScreen = class(T__SceneAncestor)
-    Glyph1: TGlyph;
+    gTitle: TGlyph;
     lMenuButtonsArray: TLayout;
     lMenuButtons: TLayout;
     btnTraining: T__SporglooButtonAncestor;
@@ -73,7 +73,9 @@ type
     procedure btnOptionsClick(Sender: TObject);
     procedure btnPlayClick(Sender: TObject);
     procedure btnTrainingClick(Sender: TObject);
+    procedure FrameResized(Sender: TObject);
   private
+    procedure CenterTheButtonsLayout;
   public
     procedure TranslateTexts(const Language: string); override;
     procedure ShowScene; override;
@@ -110,6 +112,20 @@ begin
   THelpBarManager.Current.TextSettings.FontColor := talphacolors.Whitesmoke;
   THelpBarManager.Current.HorzAlign := TDGEFMXHelpBarHorzAlign.Center;
 {$ENDIF}
+end;
+
+procedure THomeScreen.CenterTheButtonsLayout;
+begin
+  // center the buttons layout
+  lMenuButtonsArray.margins.Top := (Height - lMenuButtonsArray.Height) / 2 -
+    (gTitle.position.y + gTitle.Height + gTitle.margins.Bottom);
+  if lMenuButtonsArray.margins.Top < 0 then
+    lMenuButtonsArray.margins.Top := gTitle.margins.Bottom;
+end;
+
+procedure THomeScreen.FrameResized(Sender: TObject);
+begin
+  CenterTheButtonsLayout;
 end;
 
 procedure THomeScreen.btnContinueClick(Sender: TObject);
@@ -226,6 +242,7 @@ begin
       TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
       TSVGInputPrompts.Tag, btnQuitter.Text);
 {$ENDIF}
+  // resize the buttons list and change their Y position
   y := 0;
   for i := 0 to lMenuButtons.ChildrenCount - 1 do
     if (lMenuButtons.Children[i] is TControl) and
@@ -237,6 +254,8 @@ begin
         (lMenuButtons.Children[i] as TControl).margins.Bottom;
     end;
   lMenuButtonsArray.Height := y;
+
+  CenterTheButtonsLayout;
 end;
 
 procedure THomeScreen.TranslateTexts(const Language: string);
