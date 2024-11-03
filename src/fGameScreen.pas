@@ -83,8 +83,6 @@ uses
   uConsts,
   uScene,
   uUIElements,
-  uDMHelpBarManager,
-  USVGInputPrompts,
   Gamolf.RTL.UIElements,
   Gamolf.FMX.Joystick,
   Gamolf.RTL.Joystick,

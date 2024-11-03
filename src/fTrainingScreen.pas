@@ -81,8 +81,6 @@ uses
   uConsts,
   uScene,
   uUIElements,
-  uDMHelpBarManager,
-  USVGInputPrompts,
   uConfig,
   cNumberButton,
   uDigikooGameData;
@@ -132,7 +130,6 @@ end;
 
 procedure TTrainingScreen.ShowScene;
 var
-  s: string;
   NewBtn, PrevBtn: TNumberButton;
   i: integer;
 begin
@@ -152,28 +149,6 @@ begin
       PrevBtn := NewBtn;
     end;
   TUIItemsList.Current.AddControl(btnBack, PrevBtn, nil, nil, nil, true, true);
-
-  THelpBarManager.Current.OpenHelpBar;
-  THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardArrowUp +
-    TSVGInputPrompts.Tag, TSVGInputPrompts.SteamDpadUpOutline +
-    TSVGInputPrompts.Tag);
-  if tconfig.Current.Language = 'fr' then
-    s := 'Déplacer'
-  else
-    s := 'Move';
-  THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardArrowDown +
-    TSVGInputPrompts.Tag, TSVGInputPrompts.SteamDpadDownOutline +
-    TSVGInputPrompts.Tag, s);
-  if tconfig.Current.Language = 'fr' then
-    s := 'Choisir'
-  else
-    s := 'Select';
-  THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardSpace +
-    TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorAOutline +
-    TSVGInputPrompts.Tag, s);
-  THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardEscape +
-    TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
-    TSVGInputPrompts.Tag, btnBack.Text);
 end;
 
 procedure TTrainingScreen.TranslateTexts(const Language: string);

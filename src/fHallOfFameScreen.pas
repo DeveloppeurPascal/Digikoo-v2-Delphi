@@ -84,9 +84,7 @@ uses
   System.Messaging,
   uConsts,
   uScene,
-  uUIElements,
-  uDMHelpBarManager,
-  USVGInputPrompts;
+  uUIElements;
 
 { THallOfFameScreen }
 
@@ -106,11 +104,6 @@ begin
   inherited;
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnBack, nil, nil, nil, nil, true, true);
-
-  THelpBarManager.Current.OpenHelpBar;
-  THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardEscape +
-    TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
-    TSVGInputPrompts.Tag, btnBack.Text);
 end;
 
 procedure THallOfFameScreen.TranslateTexts(const Language: string);

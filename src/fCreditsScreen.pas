@@ -82,8 +82,6 @@ uses
   uConsts,
   uScene,
   uUIElements,
-  uDMHelpBarManager,
-  USVGInputPrompts,
   uTxtAboutDescription,
   uTxtAboutLicense;
 
@@ -111,11 +109,6 @@ begin
   inherited;
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnBack, nil, nil, nil, nil, true, true);
-
-  THelpBarManager.Current.OpenHelpBar;
-  THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardEscape +
-    TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
-    TSVGInputPrompts.Tag, btnBack.Text);
 
   if Text1.Width > 700 then
   begin

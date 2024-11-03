@@ -82,8 +82,6 @@ uses
   uConsts,
   uScene,
   uUIElements,
-  uDMHelpBarManager,
-  USVGInputPrompts,
   uDigikooGameData;
 
 procedure TGameNextLevelScreen.BeforeFirstShowScene;
