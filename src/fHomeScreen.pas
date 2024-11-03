@@ -90,20 +90,26 @@ uses
   uConsts,
   uScene,
   uUIElements,
+{$IF Defined(IOS) or Defined(ANDROID)}
+{$ELSE}
   uDMHelpBarManager,
   Gamolf.FMX.HelpBar,
   USVGInputPrompts,
+{$ENDIF}
   uDigikooGameData,
   uConfig;
 
 procedure THomeScreen.BeforeFirstShowScene;
 begin
   inherited;
+{$IF Defined(IOS) or Defined(ANDROID)}
+{$ELSE}
   THelpBarManager.Current.Height := 100;
   THelpBarManager.Current.TextSettings.Font.Size :=
     THelpBarManager.Current.TextSettings.Font.Size * 2;
   THelpBarManager.Current.TextSettings.FontColor := talphacolors.Whitesmoke;
   THelpBarManager.Current.HorzAlign := TDGEFMXHelpBarHorzAlign.Center;
+{$ENDIF}
 end;
 
 procedure THomeScreen.btnContinueClick(Sender: TObject);
@@ -150,8 +156,11 @@ begin
 end;
 
 procedure THomeScreen.ShowScene;
+{$IF Defined(IOS) or Defined(ANDROID)}
+{$ELSE}
 var
   s: string;
+{$ENDIF}
 begin
   inherited;
   TUIItemsList.Current.NewLayout;
@@ -190,6 +199,8 @@ begin
   else
     TUIItemsList.Current.AddControl(btnCredits, btnOptions, nil, nil, nil);
 
+{$IF Defined(IOS) or Defined(ANDROID)}
+{$ELSE}
   THelpBarManager.Current.OpenHelpBar;
   THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardArrowUp +
     TSVGInputPrompts.Tag, TSVGInputPrompts.SteamDpadUpOutline +
@@ -212,6 +223,7 @@ begin
     THelpBarManager.Current.AddItem(TSVGInputPrompts.KeyboardEscape +
       TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
       TSVGInputPrompts.Tag, btnQuitter.Text);
+{$ENDIF}
 end;
 
 procedure THomeScreen.TranslateTexts(const Language: string);
