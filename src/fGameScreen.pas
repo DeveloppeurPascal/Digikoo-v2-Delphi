@@ -54,6 +54,7 @@ uses
 
 type
   TNumberButtonGrid = array [1 .. 9, 1 .. 9] of TNumberButton;
+  TNumberButtonArray = array [1 .. 9] of TNumberButton;
 
   TGameScreen = class(T__SceneAncestor)
     lGameZone: TLayout;
@@ -64,6 +65,7 @@ type
   private
     CurrentNumber: integer;
     Grid: TNumberButtonGrid;
+    BtnTab: TNumberButtonArray;
     NbCases: integer;
     procedure SelectANumberClick(Sender: TObject);
     procedure PutANumberClick(Sender: TObject);
@@ -136,6 +138,7 @@ begin
                     TNumberButtonColor.Green;
                 end;
               end;
+        BtnTab[btn.Number].count := BtnTab[btn.Number].count + 1;
         btn.tag := btn.Number;
         btn.Number := 0;
       end
@@ -173,6 +176,9 @@ begin
           btn.Color := TNumberButtonColor.Red
         else
           btn.Color := TNumberButtonColor.Green;
+        BtnTab[CurrentNumber].count := BtnTab[CurrentNumber].count - 1;
+        if (BtnTab[CurrentNumber].count < 1) then
+          CurrentNumber := 0;
       end;
       DigikooGameData.PlayerGrid[btn.col, btn.row].Number := btn.Number;
       DigikooGameData.PlayerGrid[btn.col, btn.row].Color := btn.Color;
@@ -273,19 +279,30 @@ begin
   DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
   NbCases := DigikooGameData.NbCases;
   FirstTime := true;
+  for i := 1 to NbCases do
+  begin
+    btn := TNumberButton.Create(self);
+    if (FirstTime) then
+    begin
+      FirstTime := false;
+      flNumbers.Height := btn.Height;
+      lGameZone.Width := NbCases * btn.Width;
+      lGameZone.Height := NbCases * btn.Height + flNumbers.Height;
+      glPlayerGrid.ItemWidth := btn.Width;
+      glPlayerGrid.ItemHeight := btn.Height;
+    end;
+    btn.parent := flNumbers;
+    btn.Color := TNumberButtonColor.Yellow;
+    btn.Number := i;
+    btn.OnClick := SelectANumberClick;
+    btn.count := NbCases;
+    BtnTab[i] := btn;
+  end;
+
   for j := 1 to NbCases do
     for i := 1 to NbCases do
     begin
       btn := TNumberButton.Create(self);
-      if (FirstTime) then
-      begin
-        FirstTime := false;
-        flNumbers.Height := btn.Height;
-        lGameZone.Width := NbCases * btn.Width;
-        lGameZone.Height := NbCases * btn.Height + flNumbers.Height;
-        glPlayerGrid.ItemWidth := btn.Width;
-        glPlayerGrid.ItemHeight := btn.Height;
-      end;
       btn.parent := glPlayerGrid;
       btn.Color := DigikooGameData.PlayerGrid[i, j].Color;
       btn.Number := DigikooGameData.PlayerGrid[i, j].Number;
@@ -293,19 +310,11 @@ begin
       btn.col := i;
       btn.row := j;
       Grid[i, j] := btn;
+      if btn.Number in [1 .. 9] then
+        BtnTab[btn.Number].count := BtnTab[btn.Number].count - 1;
     end;
 
-  for i := 1 to NbCases do
-  begin
-    btn := TNumberButton.Create(self);
-    btn.parent := flNumbers;
-    btn.Color := TNumberButtonColor.Yellow;
-    btn.Number := i;
-    btn.OnClick := SelectANumberClick;
-  end;
-
   // TODO : gérer les éléments au clavier (UIElements pour grille et chiffres à placer dessus)
-  // TODO : gérer visibilité des chiffres disponibles selon qu'ils sont ou pas déjà dans la grille
 
   CurrentNumber := 0;
 end;
