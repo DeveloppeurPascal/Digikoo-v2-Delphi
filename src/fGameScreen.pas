@@ -136,10 +136,11 @@ begin
                     TNumberButtonColor.Green;
                 end;
               end;
+        btn.tag := btn.Number;
         btn.Number := 0;
       end;
 
-      if (CurrentNumber > 0) then
+      if (CurrentNumber > 0) and (CurrentNumber <> btn.tag) then
       begin
         btn.Number := CurrentNumber;
         Found := false;
