@@ -23,7 +23,7 @@ inherited HomeScreen: THomeScreen
       ImageIndex = 39
       Images = dmv1_pictures.ImageList
     end
-    object Layout1: TLayout
+    object lMenuButtonsArray: TLayout
       Align = Top
       Margins.Left = 10.000000000000000000
       Margins.Top = 10.000000000000000000
@@ -35,7 +35,7 @@ inherited HomeScreen: THomeScreen
       Size.Height = 420.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 1
-      object Layout2: TLayout
+      object lMenuButtons: TLayout
         Align = HorzCenter
         Position.X = 205.000000000000000000
         Size.Width = 200.000000000000000000
@@ -43,7 +43,6 @@ inherited HomeScreen: THomeScreen
         Size.PlatformDefault = False
         TabOrder = 0
         inline btnTraining: T__SporglooButtonAncestor
-          Align = Top
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
@@ -65,87 +64,17 @@ inherited HomeScreen: THomeScreen
             end
           end
         end
-        inline btnQuitter: T__SporglooButtonAncestor
-          Align = Top
+        inline btnContinue: T__SporglooButtonAncestor
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 5.000000000000000000
-          Position.Y = 359.000000000000000000
+          Position.Y = 64.000000000000000000
           Size.Width = 190.000000000000000000
           Size.Height = 49.000000000000000000
           Size.PlatformDefault = False
-          OnClick = btnQuitterClick
-          inherited rDown: TRectangle
-            inherited txtDown: TText
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-          end
-          inherited rUp: TRectangle
-            inherited txtUp: TText
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-          end
-        end
-        inline btnCredits: T__SporglooButtonAncestor
-          Align = Top
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Position.X = 5.000000000000000000
-          Position.Y = 300.000000000000000000
-          Size.Width = 190.000000000000000000
-          Size.Height = 49.000000000000000000
-          Size.PlatformDefault = False
-          OnClick = btnCreditsClick
-          inherited rDown: TRectangle
-            inherited txtDown: TText
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-          end
-          inherited rUp: TRectangle
-            inherited txtUp: TText
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-          end
-        end
-        inline btnOptions: T__SporglooButtonAncestor
-          Align = Top
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Position.X = 5.000000000000000000
-          Position.Y = 241.000000000000000000
-          Size.Width = 190.000000000000000000
-          Size.Height = 49.000000000000000000
-          Size.PlatformDefault = False
-          OnClick = btnOptionsClick
-          inherited rDown: TRectangle
-            inherited txtDown: TText
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-          end
-          inherited rUp: TRectangle
-            inherited txtUp: TText
-              TextSettings.Font.StyleExt = {00070000000000000004000000}
-            end
-          end
-        end
-        inline btnHallOfFame: T__SporglooButtonAncestor
-          Align = Top
-          Margins.Left = 5.000000000000000000
-          Margins.Top = 5.000000000000000000
-          Margins.Right = 5.000000000000000000
-          Margins.Bottom = 5.000000000000000000
-          Position.X = 5.000000000000000000
-          Position.Y = 182.000000000000000000
-          Size.Width = 190.000000000000000000
-          Size.Height = 49.000000000000000000
-          Size.PlatformDefault = False
-          OnClick = btnHallOfFameClick
+          OnClick = btnContinueClick
           inherited rDown: TRectangle
             inherited txtDown: TText
               TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -158,7 +87,6 @@ inherited HomeScreen: THomeScreen
           end
         end
         inline btnPlay: T__SporglooButtonAncestor
-          Align = Top
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
@@ -180,18 +108,83 @@ inherited HomeScreen: THomeScreen
             end
           end
         end
-        inline btnContinue: T__SporglooButtonAncestor
-          Align = Top
+        inline btnHallOfFame: T__SporglooButtonAncestor
           Margins.Left = 5.000000000000000000
           Margins.Top = 5.000000000000000000
           Margins.Right = 5.000000000000000000
           Margins.Bottom = 5.000000000000000000
           Position.X = 5.000000000000000000
-          Position.Y = 64.000000000000000000
+          Position.Y = 182.000000000000000000
           Size.Width = 190.000000000000000000
           Size.Height = 49.000000000000000000
           Size.PlatformDefault = False
-          OnClick = btnContinueClick
+          OnClick = btnHallOfFameClick
+          inherited rDown: TRectangle
+            inherited txtDown: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited rUp: TRectangle
+            inherited txtUp: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+        inline btnOptions: T__SporglooButtonAncestor
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 241.000000000000000000
+          Size.Width = 190.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = btnOptionsClick
+          inherited rDown: TRectangle
+            inherited txtDown: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited rUp: TRectangle
+            inherited txtUp: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+        inline btnCredits: T__SporglooButtonAncestor
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 300.000000000000000000
+          Size.Width = 190.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = btnCreditsClick
+          inherited rDown: TRectangle
+            inherited txtDown: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited rUp: TRectangle
+            inherited txtUp: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+        inline btnQuitter: T__SporglooButtonAncestor
+          Margins.Left = 5.000000000000000000
+          Margins.Top = 5.000000000000000000
+          Margins.Right = 5.000000000000000000
+          Margins.Bottom = 5.000000000000000000
+          Position.X = 5.000000000000000000
+          Position.Y = 359.000000000000000000
+          Size.Width = 190.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = btnQuitterClick
           inherited rDown: TRectangle
             inherited txtDown: TText
               TextSettings.Font.StyleExt = {00070000000000000004000000}

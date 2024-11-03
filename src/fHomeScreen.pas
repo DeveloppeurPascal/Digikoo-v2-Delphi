@@ -56,8 +56,8 @@ uses
 type
   THomeScreen = class(T__SceneAncestor)
     Glyph1: TGlyph;
-    Layout1: TLayout;
-    Layout2: TLayout;
+    lMenuButtonsArray: TLayout;
+    lMenuButtons: TLayout;
     btnTraining: T__SporglooButtonAncestor;
     btnQuitter: T__SporglooButtonAncestor;
     btnCredits: T__SporglooButtonAncestor;
@@ -156,9 +156,11 @@ begin
 end;
 
 procedure THomeScreen.ShowScene;
+var
+  i: integer;
+  y: single;
 {$IF Defined(IOS) or Defined(ANDROID)}
 {$ELSE}
-var
   s: string;
 {$ENDIF}
 begin
@@ -224,6 +226,17 @@ begin
       TSVGInputPrompts.Tag, TSVGInputPrompts.SteamButtonColorXOutline +
       TSVGInputPrompts.Tag, btnQuitter.Text);
 {$ENDIF}
+  y := 0;
+  for i := 0 to lMenuButtons.ChildrenCount - 1 do
+    if (lMenuButtons.Children[i] is TControl) and
+      (lMenuButtons.Children[i] as TControl).visible then
+    begin
+      (lMenuButtons.Children[i] as TControl).position.y := y;
+      y := y + (lMenuButtons.Children[i] as TControl).margins.Top +
+        (lMenuButtons.Children[i] as TControl).Height +
+        (lMenuButtons.Children[i] as TControl).margins.Bottom;
+    end;
+  lMenuButtonsArray.Height := y;
 end;
 
 procedure THomeScreen.TranslateTexts(const Language: string);
