@@ -89,7 +89,12 @@ uses
   _SporglooButtonAncestor in '..\lib-externes\Gamolf-FMX-Game-Starter-Kit\Samples\_SampleGame\ButtonsSamples\Sporgloo\_SporglooButtonAncestor.pas' {__SporglooButtonAncestor: TFrame},
   uDigikooGameData in 'uDigikooGameData.pas',
   cNumberButton in 'cNumberButton.pas' {NumberButton: TFrame},
-  fGameOverLostScreen in 'fGameOverLostScreen.pas' {GameOverLostScreen: TFrame};
+  fGameOverLostScreen in 'fGameOverLostScreen.pas' {GameOverLostScreen: TFrame},
+  USVGKenneyGameIcons in '..\assets\KenneyGameIcons\USVGKenneyGameIcons.pas',
+  cImageButton in 'cImageButton.pas' {ImageButton: TFrame},
+  uSVGBitmapManager_GameIcons in '..\assets\KenneyGameIcons\uSVGBitmapManager_GameIcons.pas',
+  USVGKenneyUIPack in '..\assets\KenneyUIPack\USVGKenneyUIPack.pas',
+  uSVGBitmapManager_UIPack in '..\assets\KenneyUIPack\uSVGBitmapManager_UIPack.pas';
 
 {$R *.res}
 
