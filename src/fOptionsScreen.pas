@@ -3,7 +3,7 @@
 ///
 /// Digikoo
 ///
-/// Copyright 2012-2024 Patrick Prémartin under AGPL 3.0 license.
+/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
 ///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -25,8 +25,8 @@
 /// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 ///
 /// ***************************************************************************
-/// File last update : 2024-11-01T19:07:02.000+01:00
-/// Signature : c51b75cc9b74ccee630b3154f9e10aef56867c91
+/// File last update : 2024-11-03T15:36:28.000+01:00
+/// Signature : 723a48f6e31ed34845d5d13c28f86e335b8714cf
 /// ***************************************************************************
 /// </summary>
 
