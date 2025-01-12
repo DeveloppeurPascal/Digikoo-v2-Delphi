@@ -72,6 +72,7 @@ type
       Shift: TShiftState; X, Y: Single);
     procedure PutANumberClick(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
+    procedure TestGridValidity;
   public
     procedure ShowScene; override;
     procedure HideScene; override;
@@ -110,7 +111,7 @@ procedure TGameScreen.PutANumberClick(Sender: TObject; Button: TMouseButton;
 var
   btn: TNumberButton;
   i, j, k: integer;
-  Found, Finished, HasRed: boolean;
+  Found: boolean;
   DigikooGameData: TDigikooGameData;
 begin
   if (Sender is TNumberButton) then
@@ -191,44 +192,7 @@ begin
       DigikooGameData.PlayerGrid[btn.col, btn.row].Number := btn.Number;
       DigikooGameData.PlayerGrid[btn.col, btn.row].Color := btn.Color;
     end;
-
-    // Test de la validité de la grille
-    // Vérifier s'il reste des emplacements à remplir
-    // Vérifier dans ce cas s'il y a des éléments rouges
-    Finished := true;
-    HasRed := false;
-    for i := 1 to NbCases do
-      for j := 1 to NbCases do
-      begin
-        Finished := Finished and (Grid[i, j].Number <> 0);
-        if not Finished then
-          break;
-        HasRed := HasRed or (Grid[i, j].Color = TNumberButtonColor.Red);
-      end;
-    if Finished then
-      if HasRed then
-        tscene.Current := TSceneType.GameOverLost
-      else
-      begin
-        if DigikooGameData.ModeDeJeu = tgamemode.game then
-        begin
-          DigikooGameData.score := DigikooGameData.score + 1;
-          if (DigikooGameData.Level = DigikooGameData.NbCases) then
-          begin
-            if (DigikooGameData.NbCases < 9) then
-            begin
-              DigikooGameData.NbCases := DigikooGameData.NbCases + 1;
-              DigikooGameData.Level := 1;
-            end
-            else
-              tscene.Current := TSceneType.GameOverWin;
-          end
-          else
-            DigikooGameData.Level := DigikooGameData.Level + 1;
-        end;
-        DigikooGameData.NewGrid;
-        tscene.Current := TSceneType.GameNextLevel;
-      end;
+    TestGridValidity;
   end;
 end;
 
@@ -248,6 +212,58 @@ begin
 
   gTitle.visible := (slGameZone.Position.Y > gTitle.Position.Y + gTitle.Height +
     gTitle.margins.Bottom);
+end;
+
+procedure TGameScreen.TestGridValidity;
+var
+  Finished: boolean;
+  HasRed: boolean;
+  i: integer;
+  j: integer;
+  DigikooGameData: TDigikooGameData;
+begin
+  DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+
+  // Test de la validité de la grille
+  // => Vérifier s'il reste des emplacements à remplir
+  // => Vérifier dans ce cas s'il y a des éléments rouges
+  Finished := true;
+  HasRed := false;
+  for i := 1 to NbCases do
+    for j := 1 to NbCases do
+    begin
+      Finished := Finished and (Grid[i, j].Number <> 0);
+      if not Finished then
+        break;
+      HasRed := HasRed or (Grid[i, j].Color = TNumberButtonColor.Red);
+    end;
+  if Finished then
+  begin
+    DigikooGameData.SaveToFile(DigikooGameData.GetFilePath);
+    if HasRed then
+      tscene.Current := TSceneType.GameOverLost
+    else
+    begin
+      if DigikooGameData.ModeDeJeu = tgamemode.game then
+      begin
+        DigikooGameData.score := DigikooGameData.score + 1;
+        if (DigikooGameData.Level = DigikooGameData.NbCases) then
+        begin
+          if (DigikooGameData.NbCases < 9) then
+          begin
+            DigikooGameData.NbCases := DigikooGameData.NbCases + 1;
+            DigikooGameData.Level := 1;
+          end
+          else
+            tscene.Current := TSceneType.GameOverWin;
+        end
+        else
+          DigikooGameData.Level := DigikooGameData.Level + 1;
+      end;
+      DigikooGameData.NewGrid;
+      tscene.Current := TSceneType.GameNextLevel;
+    end;
+  end;
 end;
 
 procedure TGameScreen.SelectANumberClick(Sender: TObject; Button: TMouseButton;
@@ -351,6 +367,8 @@ begin
   CurrentNumber := 0;
 
   RefreshGameGridSize;
+
+  TestGridValidity;
 end;
 
 initialization
