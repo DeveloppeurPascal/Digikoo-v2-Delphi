@@ -1,0 +1,24 @@
+inherited ImageButton: TImageButton
+  Size.Width = 50.000000000000000000
+  Size.Height = 50.000000000000000000
+  object rBackground: TRectangle
+    Align = Client
+    Fill.Bitmap.WrapMode = TileStretch
+    Fill.Kind = Bitmap
+    HitTest = False
+    Size.Width = 50.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    object rIcone: TRectangle
+      Align = Client
+      Fill.Bitmap.WrapMode = TileStretch
+      Fill.Kind = Bitmap
+      HitTest = False
+      Size.Width = 50.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      Stroke.Kind = None
+    end
+  end
+end
