@@ -8,6 +8,8 @@ La règle est simple : ne mettre qu'une seule fois le même chiffre par ligne et
 
 Ce dépôt de code contient un projet développé en langage Pascal Objet sous Delphi. Vous ne savez pas ce qu'est Dephi ni où le télécharger ? Vous en saurez plus [sur ce site web](https://delphi-resources.developpeur-pascal.fr/).
 
+Les versions 1.x de Digikoo étaient développée en AGK Basic. Vous pouvez en [consulter les codes sources](https://github.com/DeveloppeurPascal/Digikoo-v1-AppGameKit) archivés sur GitHub.
+
 ## Présentations et conférences
 
 ### Twitch

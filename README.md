@@ -8,6 +8,8 @@ The rule is simple: put the same number only once per row and column on grids ra
 
 This code repository contains a project developed in Object Pascal language under Delphi. You don't know what Delphi is and where to download it ? You'll learn more [on this web site](https://delphi-resources.developpeur-pascal.fr/).
 
+The 1.x releases of Digikoo ware developed in AGK Basic. You can [view the source code](https://github.com/DeveloppeurPascal/Digikoo-v1-AppGameKit) archived on GitHub.
+
 ## Talks and conferences
 
 ### Twitch
