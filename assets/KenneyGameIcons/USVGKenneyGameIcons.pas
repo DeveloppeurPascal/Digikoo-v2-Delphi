@@ -2,7 +2,7 @@ unit USVGKenneyGameIcons;
 
 // ****************************************
 // * SVG from folder :
-// * C:\Users\patrickpremartin\Documents\Embarcadero\Studio\Projets\Digikoo-v2\assets\KenneyGameIcons\uSVGKenneyGameIcons.pas
+// * C:\Users\patrickpremartin\Documents\Embarcadero\Studio\Projets\Digikoo-v2\assets\KenneyGameIcons\USVGKenneyGameIcons.pas
 // ****************************************
 //
 // This file contains a list of contants and 
@@ -12,7 +12,7 @@ unit USVGKenneyGameIcons;
 // ****************************************
 // File generator : SVG Folder to Delphi Unit v1.0
 // Website : https://svgfolder2delphiunit.olfsoftware.fr/
-// Generation date : 2025-01-12T16:46:16.894Z
+// Generation date : 2025-01-12T16:52:21.814Z
 //
 // Don't do any change on this file.
 // They will be erased by next generation !
@@ -23,20 +23,20 @@ interface
 const
   CSVGAudioOff = 0;
   CSVGAudioOn = 1;
-  CSVGExport = 2;
-  CSVGMusicOff = 3;
-  CSVGMusicOn = 4;
-  CSVGPause = 5;
+  CSVGMusicOff = 2;
+  CSVGMusicOn = 3;
+  CSVGPause = 4;
+  CSVGShare = 5;
 
 type
 {$SCOPEDENUMS ON}
   TSVGKenneyGameIconsIndex = (
     AudioOff = CSVGAudioOff,
     AudioOn = CSVGAudioOn,
-    Export = CSVGExport,
     MusicOff = CSVGMusicOff,
     MusicOn = CSVGMusicOn,
-    Pause = CSVGPause);
+    Pause = CSVGPause,
+    Share = CSVGShare);
 
   TSVGKenneyGameIcons = class
   private
@@ -54,10 +54,10 @@ type
   public const
     AudioOff = CSVGAudioOff;
     AudioOn = CSVGAudioOn;
-    Export = CSVGExport;
     MusicOff = CSVGMusicOff;
     MusicOn = CSVGMusicOn;
     Pause = CSVGPause;
+    Share = CSVGShare;
     class property Tag: integer read FTag write SetTag;
     class property TagBool: Boolean read FTagBool write SetTagBool;
     class property TagFloat: Single read FTagFloat write SetTagFloat;
@@ -143,9 +143,6 @@ SVGKenneyGameIcons[CSVGAudioOff] := '''
 SVGKenneyGameIcons[CSVGAudioOn] := '''
 <?xml version="1.0" encoding="UTF-8"?><svg id="Calque_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 31.95 32"><g id="Layer_1"><path d="M24.8,10.05l2.3-3.3,1.5,1.3.05.05c2.2,2.23,3.3,4.92,3.3,8.05s-1.1,5.85-3.3,8.05l-.1.1-1.45,1.25-2.3-3.3.9-.75.05-.05c1.47-1.47,2.2-3.23,2.2-5.3s-.73-3.78-2.2-5.25l-.05-.1-.9-.75M18,0c.53,0,1,.2,1.4.6s.6.87.6,1.4v28c0,.57-.2,1.05-.6,1.45-.4.37-.87.55-1.4.55h-2l-12-12H0v-8h4L16,0h2" fill="#fff"/></g></svg>
 ''';
-SVGKenneyGameIcons[CSVGExport] := '''
-<?xml version="1.0" encoding="UTF-8"?><svg id="Calque_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g id="Layer_1"><path d="M20,12v8h-8v-8h-4v-4L16,0l8,8v4h-4M6,16c.53,0,1,.2,1.4.6s.6.87.6,1.4v6h16v-5.95c0-.57.18-1.05.55-1.45.4-.4.88-.6,1.45-.6h4c.53,0,1,.2,1.4.6s.6.87.6,1.4v12c0,.57-.2,1.05-.6,1.45-.4.37-.87.55-1.4.55H2c-.57,0-1.05-.18-1.45-.55-.37-.4-.55-.88-.55-1.45v-11.95c0-.57.18-1.05.55-1.45.4-.4.88-.6,1.45-.6h4" fill="#fff"/></g></svg>
-''';
 SVGKenneyGameIcons[CSVGMusicOff] := '''
 <?xml version="1.0" encoding="UTF-8"?><svg id="Calque_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.94 30.98"><g id="Layer_1"><path d="M8.19,1.5C8.49.47,9.24-.03,10.44,0h13.55c2,0,3,.97,3,2.9v15.45l-.3,1.65-6.8-6.8.75-.2h1.35v-5h-7.3L8.19,1.5M3.49,2.55c.4-.4.88-.6,1.45-.6s1.03.2,1.4.6l23,23c.4.37.6.83.6,1.4s-.2,1.05-.6,1.45c-.37.37-.83.55-1.4.55s-1.05-.18-1.45-.55L3.49,5.4c-.37-.4-.55-.88-.55-1.45s.18-1.03.55-1.4M1.99,20.95l.1-.05c1.1-1.07,2.3-1.73,3.6-2h.05l2.25.1v-6.3l4,4v8.3c.07,1.27-.62,2.53-2.05,3.8l-.05.15c-1.2,1.17-2.58,1.83-4.15,2h-.05c-1.73.17-3.15-.32-4.25-1.45C.31,28.4-.16,27,.04,25.3c.13-1.67.78-3.12,1.95-4.35M14.94,19.65l5.45,5.45c-1.63.07-2.98-.47-4.05-1.6-1-.97-1.47-2.25-1.4-3.85" fill="#fff"/></g></svg>
 ''';
@@ -154,6 +151,9 @@ SVGKenneyGameIcons[CSVGMusicOn] := '''
 ''';
 SVGKenneyGameIcons[CSVGPause] := '''
 <?xml version="1.0" encoding="UTF-8"?><svg id="Calque_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 32"><g id="Layer_1"><path d="M28,2v28c0,.57-.2,1.05-.6,1.45-.4.37-.87.55-1.4.55h-8c-.57,0-1.05-.18-1.45-.55-.37-.4-.55-.88-.55-1.45V2.05c0-.57.18-1.05.55-1.45.4-.4.88-.6,1.45-.6h8c.53,0,1,.2,1.4.6s.6.87.6,1.4M11.4.6c.4.4.6.87.6,1.4v28c0,.57-.2,1.05-.6,1.45-.4.37-.87.55-1.4.55H2c-.57,0-1.05-.18-1.45-.55-.37-.4-.55-.88-.55-1.45V2.05c0-.57.18-1.05.55-1.45.4-.4.88-.6,1.45-.6h8c.53,0,1,.2,1.4.6" fill="#fff"/></g></svg>
+''';
+SVGKenneyGameIcons[CSVGShare] := '''
+<?xml version="1.0" encoding="UTF-8"?><svg id="Calque_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g id="Layer_1"><path d="M20,12v8h-8v-8h-4v-4L16,0l8,8v4h-4M6,16c.53,0,1,.2,1.4.6s.6.87.6,1.4v6h16v-5.95c0-.57.18-1.05.55-1.45.4-.4.88-.6,1.45-.6h4c.53,0,1,.2,1.4.6s.6.87.6,1.4v12c0,.57-.2,1.05-.6,1.45-.4.37-.87.55-1.4.55H2c-.57,0-1.05-.18-1.45-.55-.37-.4-.55-.88-.55-1.45v-11.95c0-.57.18-1.05.55-1.45.4-.4.88-.6,1.45-.6h4" fill="#fff"/></g></svg>
 ''';
 
 end.
