@@ -99,7 +99,8 @@ uses
   USVGInputPrompts,
 {$ENDIF}
   uDigikooGameData,
-  uConfig;
+  uConfig,
+  uSoundEffects;
 
 procedure THomeScreen.BeforeFirstShowScene;
 begin
@@ -170,6 +171,7 @@ procedure THomeScreen.HideScene;
 begin
   inherited;
   TUIItemsList.Current.RemoveLayout;
+  TSoundEffects.StopAll;
 end;
 
 procedure THomeScreen.ShowScene;

@@ -133,6 +133,7 @@ begin
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnEndGame, nil, nil, nil, nil, true, true);
 
+  TSoundEffects.StopAll;
   TSoundEffects.Current.Play(TSoundEffectType.Victoire);
   // TODO : remplacer par quelque chose d'extraordinaire
 

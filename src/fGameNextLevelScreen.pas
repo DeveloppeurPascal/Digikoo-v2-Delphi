@@ -140,6 +140,7 @@ begin
     false, true);
   TUIItemsList.Current.AddControl(btnNextLevel, btnPause, nil, nil, nil, true);
 
+  TSoundEffects.StopAll;
   TSoundEffects.Current.Play(TSoundEffectType.Victoire);
 
   FrameResized(self);
