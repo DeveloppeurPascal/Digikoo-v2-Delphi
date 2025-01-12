@@ -50,7 +50,9 @@ uses
   udmv1_pictures,
   FMX.Layouts,
   FMX.ImgList,
-  cNumberButton;
+  cNumberButton,
+  _ButtonsAncestor,
+  cImageButton;
 
 type
   TNumberButtonGrid = array [1 .. 9, 1 .. 9] of TNumberButton;
@@ -62,7 +64,15 @@ type
     gTitle: TGlyph;
     Layout2: TLayout;
     slGameZone: TScaledLayout;
+    slImageButtons: TLayout;
+    Layout3: TLayout;
+    btnPause: TImageButton;
+    btnMusicOnOff: TImageButton;
+    btnSoundsOnOff: TImageButton;
     procedure FrameResized(Sender: TObject);
+    procedure btnMusicOnOffClick(Sender: TObject);
+    procedure btnPauseClick(Sender: TObject);
+    procedure btnSoundsOnOffClick(Sender: TObject);
   private
     CurrentNumber: integer;
     Grid: TNumberButtonGrid;
@@ -91,9 +101,47 @@ uses
   Gamolf.RTL.UIElements,
   Gamolf.FMX.Joystick,
   Gamolf.RTL.Joystick,
-  uDigikooGameData;
+  uDigikooGameData,
+  uBackgroundMusic,
+  uConfig,
+  uSoundEffects;
 
 { TGameScreen }
+
+procedure TGameScreen.btnMusicOnOffClick(Sender: TObject);
+begin
+  if TConfig.Current.BackgroundMusicOnOff then
+  begin
+    TBackgroundMusic.Current.OnOff(false);
+    btnMusicOnOff.ButtonType := TImageButtonType.MusicOff;
+  end
+  else
+  begin
+    TBackgroundMusic.Current.OnOff(true);
+    btnMusicOnOff.ButtonType := TImageButtonType.MusicOn;
+  end;
+end;
+
+procedure TGameScreen.btnPauseClick(Sender: TObject);
+begin
+  TDigikooGameData.DefaultGameData.PauseGame;
+  TScene.Current := TSceneType.Home;
+end;
+
+procedure TGameScreen.btnSoundsOnOffClick(Sender: TObject);
+begin
+  if TConfig.Current.SoundEffectsOnOff then
+  begin
+    TConfig.Current.SoundEffectsOnOff := false;
+    TSoundEffects.Current.StopAll;
+    btnSoundsOnOff.ButtonType := TImageButtonType.AudioOff;
+  end
+  else
+  begin
+    TConfig.Current.SoundEffectsOnOff := true;
+    btnSoundsOnOff.ButtonType := TImageButtonType.AudioOn;
+  end;
+end;
 
 procedure TGameScreen.FrameResized(Sender: TObject);
 begin
@@ -241,7 +289,7 @@ begin
   begin
     DigikooGameData.SaveToFile(DigikooGameData.GetFilePath);
     if HasRed then
-      tscene.Current := TSceneType.GameOverLost
+      TScene.Current := TSceneType.GameOverLost
     else
     begin
       if DigikooGameData.ModeDeJeu = tgamemode.game then
@@ -255,13 +303,13 @@ begin
             DigikooGameData.Level := 1;
           end
           else
-            tscene.Current := TSceneType.GameOverWin;
+            TScene.Current := TSceneType.GameOverWin;
         end
         else
           DigikooGameData.Level := DigikooGameData.Level + 1;
       end;
       DigikooGameData.NewGrid;
-      tscene.Current := TSceneType.GameNextLevel;
+      TScene.Current := TSceneType.GameNextLevel;
     end;
   end;
 end;
@@ -312,7 +360,7 @@ begin
     procedure(const Sender: TObject)
     begin
       TDigikooGameData.DefaultGameData.PauseGame;
-      tscene.Current := TSceneType.Home;
+      TScene.Current := TSceneType.Home;
     end);
   item.KeyShortcuts.Add(vkEscape, #0, []);
   item.KeyShortcuts.Add(vkHardwareBack, #0, []);
@@ -368,6 +416,16 @@ begin
 
   RefreshGameGridSize;
 
+  if TConfig.Current.SoundEffectsOnOff then
+    btnMusicOnOff.ButtonType := TImageButtonType.MusicOn
+  else
+    btnMusicOnOff.ButtonType := TImageButtonType.MusicOff;
+  if TConfig.Current.SoundEffectsOnOff then
+    btnSoundsOnOff.ButtonType := TImageButtonType.AudioOn
+  else
+    btnSoundsOnOff.ButtonType := TImageButtonType.AudioOff;
+  btnPause.ButtonType := TImageButtonType.Pause;
+
   TestGridValidity;
 end;
 
@@ -383,7 +441,7 @@ TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
     begin
       NewScene := TGameScreen.Create(application.mainform);
       NewScene.parent := application.mainform;
-      tscene.RegisterScene(TSceneType.game, NewScene);
+      TScene.RegisterScene(TSceneType.game, NewScene);
     end;
   end);
 

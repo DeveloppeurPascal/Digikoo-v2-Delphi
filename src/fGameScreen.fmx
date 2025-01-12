@@ -49,4 +49,50 @@ inherited GameScreen: TGameScreen
       end
     end
   end
+  object Layout3: TLayout
+    Align = Contents
+    Size.Width = 862.000000000000000000
+    Size.Height = 522.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object slImageButtons: TLayout
+      Align = Right
+      Margins.Left = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Right = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 802.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 50.000000000000000000
+      Size.Height = 502.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      inline btnPause: TImageButton
+        Align = Top
+        Margins.Bottom = 10.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = btnPauseClick
+      end
+      inline btnMusicOnOff: TImageButton
+        Align = Top
+        Margins.Bottom = 10.000000000000000000
+        Position.Y = 120.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = btnMusicOnOffClick
+      end
+      inline btnSoundsOnOff: TImageButton
+        Align = Top
+        Margins.Bottom = 10.000000000000000000
+        Position.Y = 60.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        OnClick = btnSoundsOnOffClick
+      end
+    end
+  end
 end
