@@ -42,12 +42,12 @@ const
   /// Version number of your game, don't forget to update the
   /// Project/Options/Versions infos before compiling a public RELEASE
   /// </summary>
-  CAboutVersionNumber = '2.0';
+  CAboutVersionNumber = '2.1';
 
   /// <summary>
   /// Version date of your game, change it when you publish a new public release
   /// </summary>
-  CAboutVersionDate = '20241103';
+  CAboutVersionDate = '20250112';
 
   /// <summary>
   /// Title of your game used in the About box and as the main form caption
@@ -57,7 +57,7 @@ const
   /// <summary>
   /// The copyright to show in the About box
   /// </summary>
-  CAboutCopyright = '2012-2024 Patrick Prémartin';
+  CAboutCopyright = '2012-2025 Patrick Prémartin';
   // 2024 your name or anything else
 
   /// <summary>
