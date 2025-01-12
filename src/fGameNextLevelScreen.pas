@@ -64,8 +64,10 @@ type
     Layout1: TLayout;
     Layout2: TLayout;
     btnNextLevel: T__SporglooButtonAncestor;
+    btnPause: T__SporglooButtonAncestor;
     procedure btnNextLevelClick(Sender: TObject);
     procedure FrameResized(Sender: TObject);
+    procedure btnPauseClick(Sender: TObject);
   private
   public
     procedure TranslateTexts(const Language: string); override;
@@ -95,6 +97,12 @@ end;
 procedure TGameNextLevelScreen.btnNextLevelClick(Sender: TObject);
 begin
   TScene.Current := TSceneType.game;
+end;
+
+procedure TGameNextLevelScreen.btnPauseClick(Sender: TObject);
+begin
+  TDigikooGameData.DefaultGameData.PauseGame;
+  TScene.Current := TSceneType.Home;
 end;
 
 procedure TGameNextLevelScreen.FrameResized(Sender: TObject);
@@ -128,7 +136,9 @@ procedure TGameNextLevelScreen.ShowScene;
 begin
   inherited;
   TUIItemsList.Current.NewLayout;
-  TUIItemsList.Current.AddControl(btnNextLevel, nil, nil, nil, nil, true, true);
+  TUIItemsList.Current.AddControl(btnPause, nil, nil, btnNextLevel, nil,
+    false, true);
+  TUIItemsList.Current.AddControl(btnNextLevel, btnPause, nil, nil, nil, true);
 
   TSoundEffects.Current.Play(TSoundEffectType.Victoire);
 
@@ -142,6 +152,7 @@ begin
   inherited;
   if (Language = 'fr') then
   begin
+    btnPause.Text := 'Pause';
     btnNextLevel.Text := 'Niveau suivant';
     s := 'Bien joué !' + slinebreak + slinebreak;
     if (TDigikooGameData.DefaultGameData.score > 0) then
@@ -151,6 +162,7 @@ begin
   end
   else
   begin
+    btnPause.Text := 'Pause';
     btnNextLevel.Text := 'Next level';
     s := 'Well done !' + slinebreak + slinebreak;
     if (TDigikooGameData.DefaultGameData.score > 0) then

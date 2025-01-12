@@ -48,22 +48,42 @@ inherited GameNextLevelScreen: TGameNextLevelScreen
       Position.X = 10.000000000000000000
       Position.Y = 200.000000000000000000
       Size.Width = 808.000000000000000000
-      Size.Height = 80.000000000000000000
+      Size.Height = 153.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 2
       object Layout2: TLayout
         Align = HorzCenter
         Position.X = 309.000000000000000000
         Size.Width = 190.000000000000000000
-        Size.Height = 80.000000000000000000
+        Size.Height = 153.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         inline btnNextLevel: T__SporglooButtonAncestor
-          Position.Y = 1.000000000000000000
+          Align = Top
+          Margins.Bottom = 10.000000000000000000
+          Position.Y = 59.000000000000000000
           Size.Width = 190.000000000000000000
           Size.Height = 49.000000000000000000
           Size.PlatformDefault = False
           OnClick = btnNextLevelClick
+          inherited rDown: TRectangle
+            inherited txtDown: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+          inherited rUp: TRectangle
+            inherited txtUp: TText
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+            end
+          end
+        end
+        inline btnPause: T__SporglooButtonAncestor
+          Align = Top
+          Margins.Bottom = 10.000000000000000000
+          Size.Width = 190.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          OnClick = btnPauseClick
           inherited rDown: TRectangle
             inherited txtDown: TText
               TextSettings.Font.StyleExt = {00070000000000000004000000}
