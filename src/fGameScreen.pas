@@ -68,8 +68,10 @@ type
     Grid: TNumberButtonGrid;
     BtnTab: TNumberButtonArray;
     NbCases: integer;
-    procedure SelectANumberClick(Sender: TObject);
-    procedure PutANumberClick(Sender: TObject);
+    procedure SelectANumberClick(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure PutANumberClick(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
   public
     procedure ShowScene; override;
     procedure HideScene; override;
@@ -103,7 +105,8 @@ begin
   TUIItemsList.Current.RemoveLayout;
 end;
 
-procedure TGameScreen.PutANumberClick(Sender: TObject);
+procedure TGameScreen.PutANumberClick(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
 var
   btn: TNumberButton;
   i, j, k: integer;
@@ -231,7 +234,7 @@ end;
 
 procedure TGameScreen.RefreshGameGridSize;
 var
-  r: single;
+  r: Single;
 begin
   slGameZone.Width := slGameZone.OriginalWidth;
   slGameZone.Height := slGameZone.OriginalHeight;
@@ -243,11 +246,12 @@ begin
     slGameZone.Height := slGameZone.OriginalHeight * r;
   end;
 
-  gTitle.visible := (slGameZone.Position.y > gTitle.Position.y + gTitle.Height +
+  gTitle.visible := (slGameZone.Position.Y > gTitle.Position.Y + gTitle.Height +
     gTitle.margins.Bottom);
 end;
 
-procedure TGameScreen.SelectANumberClick(Sender: TObject);
+procedure TGameScreen.SelectANumberClick(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
 var
   btn: TNumberButton;
   i: integer;
@@ -322,7 +326,7 @@ begin
     btn.parent := flNumbers;
     btn.Color := TNumberButtonColor.Yellow;
     btn.Number := i;
-    btn.OnClick := SelectANumberClick;
+    btn.OnMouseDown := SelectANumberClick;
     btn.count := NbCases;
     BtnTab[i] := btn;
   end;
@@ -334,7 +338,7 @@ begin
       btn.parent := glPlayerGrid;
       btn.Color := DigikooGameData.PlayerGrid[i, j].Color;
       btn.Number := DigikooGameData.PlayerGrid[i, j].Number;
-      btn.OnClick := PutANumberClick;
+      btn.OnMouseDown := PutANumberClick;
       btn.col := i;
       btn.row := j;
       Grid[i, j] := btn;

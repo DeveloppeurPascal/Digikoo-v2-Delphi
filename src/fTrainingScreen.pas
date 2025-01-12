@@ -64,7 +64,8 @@ type
     btnBack: T__SporglooButtonAncestor;
     procedure btnBackClick(Sender: TObject);
   private
-    procedure btnNumberClick(Sender: TObject);
+    procedure btnNumberClick(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
   public
     procedure TranslateTexts(const Language: string); override;
     procedure ShowScene; override;
@@ -89,21 +90,21 @@ procedure TTrainingScreen.BeforeFirstShowScene;
 var
   i: integer;
   btn: TNumberButton;
-  y: single;
+  Y: Single;
 begin
   inherited;
-  y := 0;
+  Y := 0;
   for i := 3 to 9 do
   begin
     btn := TNumberButton.Create(self);
     btn.Parent := lNumbers;
-    btn.Position.y := y;
-    btn.OnClick := btnNumberClick;
+    btn.Position.Y := Y;
+    btn.OnMouseDown := btnNumberClick;
     btn.Color := TNumberButtonColor.Grey;
     btn.Number := i;
-    y := y + btn.Height + 10;
+    Y := Y + btn.Height + 10;
   end;
-  lNumbersParent.Height := y - 10;
+  lNumbersParent.Height := Y - 10;
 end;
 
 procedure TTrainingScreen.btnBackClick(Sender: TObject);
@@ -111,7 +112,8 @@ begin
   tscene.Current := TSceneType.Home;
 end;
 
-procedure TTrainingScreen.btnNumberClick(Sender: TObject);
+procedure TTrainingScreen.btnNumberClick(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
 begin
   if (Sender is TNumberButton) then
   begin
