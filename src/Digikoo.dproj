@@ -503,7 +503,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Android)'!=''">
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
-        <VerInfo_Build>18</VerInfo_Build>
+        <VerInfo_Build>20</VerInfo_Build>
         <Android_BackgroundColor>#FFFFFF</Android_BackgroundColor>
         <Android_DarkBackgroundColor>#000000</Android_DarkBackgroundColor>
         <IncludeAndroid_NotificationAccentColor>false</IncludeAndroid_NotificationAccentColor>
@@ -525,7 +525,7 @@
         <Android_NotificationIcon48>..\assets\icons\digikoo-48x48.png</Android_NotificationIcon48>
         <Android_NotificationIcon72>..\assets\icons\digikoo-72x72.png</Android_NotificationIcon72>
         <Android_NotificationIcon96>..\assets\icons\digikoo-96x96.png</Android_NotificationIcon96>
-        <VerInfo_Keys>package=fr.gamolf.digikoo;label=$(MSBuildProjectName);versionCode=18;versionName=2.1;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=34</VerInfo_Keys>
+        <VerInfo_Keys>package=fr.gamolf.digikoo;label=$(MSBuildProjectName);versionCode=20;versionName=2.1;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=34</VerInfo_Keys>
         <PF_KeyStore>..\_PRIVATE\android\digikoo.keystore</PF_KeyStore>
         <PF_KeyStorePass>852747F35FCE0781CF5AE506A4457BABE46808607EA5ECF09F057773D807A888A5D35D4D7F6DE2798724C8F70A2C67FD147EB8458DB87E2F8CE3A09B784C8615DCE4ADA80B6A1AF4A6A5DF4A3A353AC54523BDC90DD00CF0A7BD3DB8DD7A9FFD0884FDC60870B0084289E8219208F3E09632E9E9DE05C001B354C2EDA72756B1E869531A535C5FA034E4FF3AAFB9910AC7A41AABDA885B561577D3A63087AD3C6E81C12567E5BBFE50FE</PF_KeyStorePass>
         <PF_AliasKey>digikoo-v2</PF_AliasKey>
@@ -533,7 +533,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Android64)'!=''">
         <DCC_GenerateAndroidAppBundleFile>true</DCC_GenerateAndroidAppBundleFile>
-        <VerInfo_Build>16</VerInfo_Build>
+        <VerInfo_Build>17</VerInfo_Build>
         <Android_BackgroundColor>#FFFFFF</Android_BackgroundColor>
         <Android_DarkBackgroundColor>#000000</Android_DarkBackgroundColor>
         <IncludeAndroid_NotificationAccentColor>false</IncludeAndroid_NotificationAccentColor>
@@ -556,7 +556,7 @@
         <Android_NotificationIcon48>..\assets\icons\digikoo-48x48.png</Android_NotificationIcon48>
         <Android_NotificationIcon72>..\assets\icons\digikoo-72x72.png</Android_NotificationIcon72>
         <Android_NotificationIcon96>..\assets\icons\digikoo-96x96.png</Android_NotificationIcon96>
-        <VerInfo_Keys>package=fr.gamolf.digikoo;label=$(MSBuildProjectName);versionCode=16;versionName=2.1;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=34</VerInfo_Keys>
+        <VerInfo_Keys>package=fr.gamolf.digikoo;label=$(MSBuildProjectName);versionCode=17;versionName=2.1;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=;minSdkVersion=23;targetSdkVersion=34</VerInfo_Keys>
         <PF_KeyStore>..\_PRIVATE\android\digikoo.keystore</PF_KeyStore>
         <PF_KeyStorePass>852747F35FCE0781CF5AE506A4457BABE46808607EA5ECF09F057773D807A888A5D35D4D7F6DE2798724C8F70A2C67FD147EB8458DB87E2F8CE3A09B784C8615DCE4ADA80B6A1AF4A6A5DF4A3A353AC54523BDC90DD00CF0A7BD3DB8DD7A9FFD0884FDC60870B0084289E8219208F3E09632E9E9DE05C001B354C2EDA72756B1E869531A535C5FA034E4FF3AAFB9910AC7A41AABDA885B561577D3A63087AD3C6E81C12567E5BBFE50FE</PF_KeyStorePass>
         <PF_AliasKey>digikoo-v2</PF_AliasKey>
@@ -587,10 +587,10 @@
         <iPad_Notification40>..\assets\icons\digikoo-40x40.png</iPad_Notification40>
         <iPad_Launch2x>..\assets\icons\digikoo-512x512.png</iPad_Launch2x>
         <iPad_LaunchDark2x>..\assets\icons\digikoo-512x512.png</iPad_LaunchDark2x>
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=fr;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=olfsoftware.gamolf.digikoo.ios;CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=2.1.1;CFBundleShortVersionString=2.1;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;NSLocationAlwaysAndWhenInUseUsageDescription=The reason for accessing the location information of the user;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSPhotoLibraryAddUsageDescription=The reason for adding to the photo library;NSCameraUsageDescription=The reason for accessing the camera;NSFaceIDUsageDescription=The reason for accessing the face id;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSSiriUsageDescription=The reason for accessing Siri;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing bluetooth;NSBluetoothPeripheralUsageDescription=The reason for accessing bluetooth peripherals;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSMotionUsageDescription=The reason for accessing the accelerometer;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers</VerInfo_Keys>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDevelopmentRegion=fr;CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=olfsoftware.gamolf.digikoo.ios;CFBundleInfoDictionaryVersion=7.1;CFBundleVersion=2.1.2;CFBundleShortVersionString=2.1;CFBundlePackageType=APPL;CFBundleSignature=????;LSRequiresIPhoneOS=true;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);UIDeviceFamily=iPhone &amp; iPad;NSLocationAlwaysUsageDescription=The reason for accessing the location information of the user;NSLocationWhenInUseUsageDescription=The reason for accessing the location information of the user;NSLocationAlwaysAndWhenInUseUsageDescription=The reason for accessing the location information of the user;UIBackgroundModes=;NSContactsUsageDescription=The reason for accessing the contacts;NSPhotoLibraryUsageDescription=The reason for accessing the photo library;NSPhotoLibraryAddUsageDescription=The reason for adding to the photo library;NSCameraUsageDescription=The reason for accessing the camera;NSFaceIDUsageDescription=The reason for accessing the face id;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSSiriUsageDescription=The reason for accessing Siri;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing bluetooth;NSBluetoothPeripheralUsageDescription=The reason for accessing bluetooth peripherals;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSMotionUsageDescription=The reason for accessing the accelerometer;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers</VerInfo_Keys>
         <VerInfo_MajorVer>2</VerInfo_MajorVer>
         <BT_BuildType>AppStore</BT_BuildType>
-        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Build>2</VerInfo_Build>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_iOSSimARM64)'!=''">
@@ -602,10 +602,10 @@
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <Icon_MainIcon>..\assets\icons\digikoo-nobackground.ico</Icon_MainIcon>
         <Icns_MainIcns>..\assets\icons\digikoo-nobackground.icns</Icns_MainIcns>
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=olfsoftware.gamolf.digikoo.ios;CFBundleVersion=2.1.1;CFBundleShortVersionString=2.1;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true;LSApplicationCategoryType=public.app-category.utilities;NSLocationUsageDescription=The reason for accessing the location information of the user;NSContactsUsageDescription=The reason for accessing the contacts;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSCameraUsageDescription=The reason for accessing the camera;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSMotionUsageDescription=The reason for accessing the accelerometer;NSDesktopFolderUsageDescription=The reason for accessing the Desktop folder;NSDocumentsFolderUsageDescription=The reason for accessing the Documents folder;NSDownloadsFolderUsageDescription=The reason for accessing the Downloads folder;NSNetworkVolumesUsageDescription=The reason for accessing files on a network volume;NSRemovableVolumesUsageDescription=The reason for accessing files on a removable volume;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing the Bluetooth interface</VerInfo_Keys>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=olfsoftware.gamolf.digikoo.ios;CFBundleVersion=2.1.4;CFBundleShortVersionString=2.1;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true;LSApplicationCategoryType=public.app-category.utilities;NSLocationUsageDescription=The reason for accessing the location information of the user;NSContactsUsageDescription=The reason for accessing the contacts;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSCameraUsageDescription=The reason for accessing the camera;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSMotionUsageDescription=The reason for accessing the accelerometer;NSDesktopFolderUsageDescription=The reason for accessing the Desktop folder;NSDocumentsFolderUsageDescription=The reason for accessing the Documents folder;NSDownloadsFolderUsageDescription=The reason for accessing the Downloads folder;NSNetworkVolumesUsageDescription=The reason for accessing files on a network volume;NSRemovableVolumesUsageDescription=The reason for accessing files on a removable volume;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing the Bluetooth interface</VerInfo_Keys>
         <VerInfo_MajorVer>2</VerInfo_MajorVer>
         <BT_BuildType>DeveloperID</BT_BuildType>
-        <VerInfo_Build>1</VerInfo_Build>
+        <VerInfo_Build>4</VerInfo_Build>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_OSXARM64)'!=''">
@@ -615,10 +615,10 @@
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <Icon_MainIcon>..\assets\icons\digikoo-nobackground.ico</Icon_MainIcon>
         <Icns_MainIcns>..\assets\icons\digikoo-nobackground.icns</Icns_MainIcns>
-        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=olfsoftware.gamolf.digikoo.ios;CFBundleVersion=2.1.1;CFBundleShortVersionString=2.1;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true;LSApplicationCategoryType=public.app-category.utilities;NSLocationUsageDescription=The reason for accessing the location information of the user;NSContactsUsageDescription=The reason for accessing the contacts;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSCameraUsageDescription=The reason for accessing the camera;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSMotionUsageDescription=The reason for accessing the accelerometer;NSDesktopFolderUsageDescription=The reason for accessing the Desktop folder;NSDocumentsFolderUsageDescription=The reason for accessing the Documents folder;NSDownloadsFolderUsageDescription=The reason for accessing the Downloads folder;NSNetworkVolumesUsageDescription=The reason for accessing files on a network volume;NSRemovableVolumesUsageDescription=The reason for accessing files on a removable volume;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing the Bluetooth interface</VerInfo_Keys>
+        <VerInfo_Keys>CFBundleName=$(MSBuildProjectName);CFBundleDisplayName=$(MSBuildProjectName);CFBundleIdentifier=olfsoftware.gamolf.digikoo.ios;CFBundleVersion=2.1.3;CFBundleShortVersionString=2.1;CFBundlePackageType=APPL;CFBundleSignature=????;CFBundleAllowMixedLocalizations=YES;CFBundleExecutable=$(MSBuildProjectName);NSHighResolutionCapable=true;LSApplicationCategoryType=public.app-category.utilities;NSLocationUsageDescription=The reason for accessing the location information of the user;NSContactsUsageDescription=The reason for accessing the contacts;NSCalendarsUsageDescription=The reason for accessing the calendar data;NSRemindersUsageDescription=The reason for accessing the reminders;NSCameraUsageDescription=The reason for accessing the camera;NSMicrophoneUsageDescription=The reason for accessing the microphone;NSMotionUsageDescription=The reason for accessing the accelerometer;NSDesktopFolderUsageDescription=The reason for accessing the Desktop folder;NSDocumentsFolderUsageDescription=The reason for accessing the Documents folder;NSDownloadsFolderUsageDescription=The reason for accessing the Downloads folder;NSNetworkVolumesUsageDescription=The reason for accessing files on a network volume;NSRemovableVolumesUsageDescription=The reason for accessing files on a removable volume;NSSpeechRecognitionUsageDescription=The reason for requesting to send user data to Apple&apos;s speech recognition servers;ITSAppUsesNonExemptEncryption=false;NSBluetoothAlwaysUsageDescription=The reason for accessing the Bluetooth interface</VerInfo_Keys>
         <VerInfo_MajorVer>2</VerInfo_MajorVer>
-        <BT_BuildType>AppStore</BT_BuildType>
-        <VerInfo_Build>1</VerInfo_Build>
+        <BT_BuildType>DeveloperID</BT_BuildType>
+        <VerInfo_Build>3</VerInfo_Build>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
@@ -631,8 +631,9 @@
         <UWP_DelphiLogo44>..\assets\icons\digikoo-44x44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>..\assets\icons\digikoo-150x150.png</UWP_DelphiLogo150>
         <VerInfo_MajorVer>2</VerInfo_MajorVer>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.1.0.0;InternalName=;LegalCopyright=2012-2025 Patrick Prémartin;LegalTrademarks=;OriginalFilename=;ProgramID=fr.gamolf.digikoo;ProductName=$(MSBuildProjectName);ProductVersion=2.1;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.1.0.1;InternalName=;LegalCopyright=2012-2025 Patrick Prémartin;LegalTrademarks=;OriginalFilename=;ProgramID=fr.gamolf.digikoo;ProductName=$(MSBuildProjectName);ProductVersion=2.1;Comments=</VerInfo_Keys>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -644,8 +645,9 @@
         <UWP_DelphiLogo44>..\assets\icons\digikoo-44x44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>..\assets\icons\digikoo-150x150.png</UWP_DelphiLogo150>
         <VerInfo_MajorVer>2</VerInfo_MajorVer>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.1.0.0;InternalName=;LegalCopyright=2012-2025 Patrick Prémartin;LegalTrademarks=;OriginalFilename=;ProgramID=fr.gamolf.digikoo;ProductName=$(MSBuildProjectName);ProductVersion=2.1;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=2.1.0.1;InternalName=;LegalCopyright=2012-2025 Patrick Prémartin;LegalTrademarks=;OriginalFilename=;ProgramID=fr.gamolf.digikoo;ProductName=$(MSBuildProjectName);ProductVersion=2.1;Comments=</VerInfo_Keys>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <VerInfo_Build>1</VerInfo_Build>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -1695,12 +1697,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="OSX64\Debug\Digikoo.dSYM" Configuration="Debug" Class="ProjectOSXDebug">
-                    <Platform Name="OSX64">
-                        <RemoteName>Digikoo</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="OSX64\Debug\Digikoo.entitlements" Configuration="Debug" Class="ProjectOSXEntitlements">
                     <Platform Name="OSX64">
                         <Overwrite>true</Overwrite>
@@ -1731,12 +1727,6 @@
                 </DeployFile>
                 <DeployFile LocalName="OSX64\Release\Digikoo" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="OSX64">
-                        <RemoteName>Digikoo</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="OSXARM64\Debug\Digikoo.dSYM" Configuration="Debug" Class="ProjectOSXDebug">
-                    <Platform Name="OSXARM64">
                         <RemoteName>Digikoo</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
