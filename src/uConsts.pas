@@ -25,8 +25,8 @@
 /// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 ///
 /// ***************************************************************************
-/// File last update : 2025-01-12T19:23:40.000+01:00
-/// Signature : 8fb00497c5b6f9b5b4b014023ea028a2dcef49bd
+/// File last update : 2025-01-14T20:55:22.000+01:00
+/// Signature : 478751273b4508ef0457657ec5f5d841a5ce69b5
 /// ***************************************************************************
 /// </summary>
 
@@ -47,7 +47,7 @@ const
   /// <summary>
   /// Version date of your game, change it when you publish a new public release
   /// </summary>
-  CAboutVersionDate = '20250112';
+  CAboutVersionDate = '20250114';
 
   /// <summary>
   /// Title of your game used in the About box and as the main form caption
@@ -57,8 +57,7 @@ const
   /// <summary>
   /// The copyright to show in the About box
   /// </summary>
-  CAboutCopyright = '2012-2025 Patrick Prémartin';
-  // 2024 your name or anything else
+  CAboutCopyright = '(c) 2012-2025 Patrick Prémartin';
 
   /// <summary>
   /// The website URL of your game (used in the About box)
