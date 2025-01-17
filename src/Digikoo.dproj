@@ -328,7 +328,7 @@
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
-        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\(vide)</Manifest_File>
+        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\(vide)</Manifest_File>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
     </PropertyGroup>
@@ -338,7 +338,7 @@
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <Debugger_Launcher>/usr/X11/bin/xterm -e &quot;%debuggee%&quot;</Debugger_Launcher>
-        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\(vide)</Manifest_File>
+        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\(vide)</Manifest_File>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
     </PropertyGroup>
@@ -461,14 +461,14 @@
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <Icon_MainIcon>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.ico</Icon_MainIcon>
         <Icns_MainIcns>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.icns</Icns_MainIcns>
-        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\(vide)</Manifest_File>
+        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\(vide)</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_OSXARM64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
         <Icon_MainIcon>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.ico</Icon_MainIcon>
         <Icns_MainIcns>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\icons\debuggameicon.icns</Icns_MainIcns>
-        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\(vide)</Manifest_File>
+        <Manifest_File>..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\(vide)</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
@@ -659,7 +659,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\fMain.pas">
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\fMain.pas">
             <Form>frmMain</Form>
             <FormType>fmx</FormType>
         </DCCReference>
@@ -674,7 +674,7 @@
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.CryptDecrypt.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Params.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.Skia.SVGToBitmap.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uDMAboutBox.pas">
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMAboutBox.pas">
             <Form>AboutBox</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
@@ -698,33 +698,33 @@
         <DCCReference Include="..\lib-externes\Delphi-Game-Engine\src\Gamolf.RTL.UIElements.pas"/>
         <DCCReference Include="..\lib-externes\Delphi-Game-Engine\src\iOSapi.GameController.pas"/>
         <DCCReference Include="..\lib-externes\Delphi-Game-Engine\src\Macapi.GameController.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uTranslate.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uConfig.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\_ScenesAncestor.pas">
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uTranslate.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uConfig.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ScenesAncestor.pas">
             <Form>__SceneAncestor</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uScene.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uUIElements.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uGameData.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uScene.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uUIElements.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uGameData.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Streams.pas"/>
         <DCCReference Include="..\lib-externes\librairies\src\Olf.RTL.Maths.Conversions.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uBackgroundMusic.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uBackgroundMusic.pas"/>
         <DCCReference Include="uSoundEffects.pas"/>
         <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\assets\kenney_nl\InputPrompts\USVGInputPrompts.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uDMGameControllerCenter.pas">
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMGameControllerCenter.pas">
             <Form>DMGameControllerCenter</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uSVGBitmapManager_InputPrompts.pas"/>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\uDMHelpBarManager.pas">
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uSVGBitmapManager_InputPrompts.pas"/>
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\uDMHelpBarManager.pas">
             <Form>HelpBarManager</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\starter-kit-src\_ButtonsAncestor.pas">
+        <DCCReference Include="..\lib-externes\Gamolf-FMX-Game-Starter-Kit\src\_ButtonsAncestor.pas">
             <Form>__ButtonAncestor</Form>
             <FormType>fmx</FormType>
             <DesignClass>TFrame</DesignClass>
