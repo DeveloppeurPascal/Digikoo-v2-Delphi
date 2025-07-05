@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-03T10:43:48.975+02:00
-  Signature : bcebbd6d8ec9f7eb1fd6511842170b19be01a325
+  File last update : 2025-07-05T11:07:42.000+02:00
+  Signature : e88503852baac3a732dbe0a8a3b69b69c3f9b4cf
   ***************************************************************************
 *)
 
@@ -42,12 +42,12 @@ const
   /// Version number of your game, don't forget to update the
   /// Project/Options/Versions infos before compiling a public RELEASE
   /// </summary>
-  CAboutVersionNumber = '2.1';
+  CAboutVersionNumber = '2.2';
 
   /// <summary>
   /// Version date of your game, change it when you publish a new public release
   /// </summary>
-  CAboutVersionDate = '20250114';
+  CAboutVersionDate = '20250705';
 
   /// <summary>
   /// Title of your game used in the About box and as the main form caption
