@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:53:06.000+02:00
-  Signature : c33d2ec8911ad2c56fa42d68997c356644caed61
+  File last update : 2025-07-05T09:20:16.000+02:00
+  Signature : 00f3a90bf6f8a8ebfffc9bcb1de59be7d4ceb486
   ***************************************************************************
 *)
 
@@ -135,18 +135,25 @@ begin
 end;
 
 procedure TCreditsScreen.TranslateTexts(const Language: string);
+var
+  txtLicense: string;
 begin
   inherited;
-  Text1.Text := GetTxtAboutDescription(Language) + slinebreak + slinebreak +
-    GetTxtAboutLicense(Language) + slinebreak + slinebreak;
   if (Language = 'fr') then
   begin
+    txtLicense := 'Licence';
     btnBack.Text := 'Retour';
   end
   else
   begin
+    txtLicense := 'License';
     btnBack.Text := 'Back';
   end;
+
+  Text1.Text := GetTxtAboutDescription(Language).trim + sLineBreak + sLineBreak
+    + '**********' + sLineBreak + '* ' + txtLicense + sLineBreak + sLineBreak +
+    GetTxtAboutLicense(Language).trim + sLineBreak + sLineBreak +
+    application.MainForm.Caption + ' ' + CAboutCopyright + sLineBreak;
 end;
 
 initialization
