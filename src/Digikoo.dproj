@@ -597,6 +597,7 @@
         <BT_BuildType>AppStore</BT_BuildType>
         <VerInfo_Build>2</VerInfo_Build>
         <VerInfo_MinorVer>1</VerInfo_MinorVer>
+        <IOSTransportSecFeat>false</IOSTransportSecFeat>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_iOSSimARM64)'!=''">
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
