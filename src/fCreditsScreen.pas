@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-03T10:43:48.947+02:00
-  Signature : 17882cadd85f46c6db5e9af7d805e3b91c726967
+  File last update : 2025-07-05T08:53:06.000+02:00
+  Signature : c33d2ec8911ad2c56fa42d68997c356644caed61
   ***************************************************************************
 *)
 
@@ -79,7 +79,6 @@ implementation
 {$R *.fmx}
 
 uses
-  System.Messaging,
   uConsts,
   uScene,
   uUIElements,
@@ -152,18 +151,6 @@ end;
 
 initialization
 
-TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
-  procedure(const Sender: TObject; const Msg: TMessage)
-  var
-    NewScene: TCreditsScreen;
-  begin
-    if (Msg is TSceneFactory) and
-      ((Msg as TSceneFactory).SceneType = TSceneType.Credits) then
-    begin
-      NewScene := TCreditsScreen.Create(application.mainform);
-      NewScene.Parent := application.mainform;
-      tscene.RegisterScene(TSceneType.Credits, NewScene);
-    end;
-  end);
+tscene.RegisterScene<TCreditsScreen>(TSceneType.Credits);
 
 end.
