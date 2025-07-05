@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-03T10:43:48.947+02:00
-  Signature : 73d081692ed8712a7991426b841e09e525879a27
+  File last update : 2025-07-05T10:05:14.000+02:00
+  Signature : a8e506f6947426a4defcd9146a02cb80b2856e46
   ***************************************************************************
 *)
 
@@ -47,7 +47,8 @@ uses
   FMX.Dialogs,
   FMX.StdCtrls,
   _ButtonsAncestor,
-  FMX.Objects;
+  FMX.Objects,
+  FMX.Effects;
 
 type
 {$SCOPEDENUMS ON}
@@ -56,6 +57,7 @@ type
   TImageButton = class(T__ButtonAncestor)
     rBackground: TRectangle;
     rIcone: TRectangle;
+    ShadowEffect1: TShadowEffect;
   private
     FButtonType: TImageButtonType;
     procedure SetButtonType(const Value: TImageButtonType);
@@ -96,10 +98,10 @@ begin
       (getBitmapFromSVG(tsvgkenneyuipackindex.ButtonSquareFlat,
       rBackground.width, rBackground.height,
       rBackground.Fill.Bitmap.Bitmap.bitmapscale));
-    rIcone.margins.Top := 5;
-    rIcone.margins.Right := 5;
-    rIcone.margins.Bottom := 5;
-    rIcone.margins.Left := 5;
+    rIcone.margins.Top := 7;
+    rIcone.margins.Right := 7;
+    rIcone.margins.Bottom := 7;
+    rIcone.margins.Left := 7;
   end
   else
   begin
@@ -107,10 +109,10 @@ begin
       (getBitmapFromSVG(tsvgkenneyuipackindex.ButtonSquareDepthFlat,
       rBackground.width, rBackground.height,
       rBackground.Fill.Bitmap.Bitmap.bitmapscale));
-    rIcone.margins.Top := 5;
-    rIcone.margins.Right := 8;
-    rIcone.margins.Bottom := 8;
-    rIcone.margins.Left := 11;
+    rIcone.margins.Top := 7;
+    rIcone.margins.Right := 10;
+    rIcone.margins.Bottom := 10;
+    rIcone.margins.Left := 13;
   end;
   case FButtonType of
     TImageButtonType.None:
