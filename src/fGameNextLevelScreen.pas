@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:52:34.000+02:00
-  Signature : 3751672ac4870409a6f54154489f20533dd43bcc
+  File last update : 2025-07-05T09:13:28.000+02:00
+  Signature : 7d33fc2569ba8191d6656040ed70d96f0f2bbbbf
   ***************************************************************************
 *)
 
@@ -100,7 +100,7 @@ end;
 
 procedure TGameNextLevelScreen.btnPauseClick(Sender: TObject);
 begin
-  TDigikooGameData.DefaultGameData.PauseGame;
+  TDigikooGameData.Current.PauseGame;
   TScene.Current := TSceneType.Home;
 end;
 
@@ -155,9 +155,9 @@ begin
     btnPause.Text := 'Pause';
     btnNextLevel.Text := 'Niveau suivant';
     s := 'Bien joué !' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Votre score : ' + TDigikooGameData.DefaultGameData.score.
-        ToString + slinebreak + slinebreak;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Votre score : ' + TDigikooGameData.Current.score.ToString +
+        slinebreak + slinebreak;
     s := s + 'Passons à la grille suivante.';
   end
   else
@@ -165,9 +165,9 @@ begin
     btnPause.Text := 'Pause';
     btnNextLevel.Text := 'Next level';
     s := 'Well done !' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Your score : ' + TDigikooGameData.DefaultGameData.score.ToString
-        + slinebreak + slinebreak;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Your score : ' + TDigikooGameData.Current.score.ToString +
+        slinebreak + slinebreak;
     s := s + 'Go to next grid.';
   end;
   Text1.Text := s;

@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:50:10.000+02:00
-  Signature : 82e8c1e2391ebf93ede35b858f1eb62ac2709b2f
+  File last update : 2025-07-05T09:13:14.000+02:00
+  Signature : cc95c7db56098853e39d881bb8c0d24ea3755ca4
   ***************************************************************************
 *)
 
@@ -112,7 +112,6 @@ begin
   THelpBarManager.Current.TextSettings.FontColor := talphacolors.Whitesmoke;
   THelpBarManager.Current.HorzAlign := TDGEFMXHelpBarHorzAlign.Center;
 {$ENDIF}
-  TDigikooGameData(TDigikooGameData.DefaultGameData).Load;
 end;
 
 procedure THomeScreen.CenterTheButtonsLayout;
@@ -131,7 +130,7 @@ end;
 
 procedure THomeScreen.btnContinueClick(Sender: TObject);
 begin
-  TDigikooGameData.DefaultGameData.ContinueGame;
+  TDigikooGameData.Current.ContinueGame;
   tscene.Current := TSceneType.Game;
 end;
 
@@ -152,7 +151,7 @@ end;
 
 procedure THomeScreen.btnPlayClick(Sender: TObject);
 begin
-  TDigikooGameData.DefaultGameData.StartANewGame;
+  TDigikooGameData.Current.StartANewGame;
   tscene.Current := TSceneType.Game;
 end;
 
@@ -184,7 +183,7 @@ var
 begin
   inherited;
   TUIItemsList.Current.NewLayout;
-  if TDigikooGameData.DefaultGameData.IsPaused then
+  if TDigikooGameData.Current.IsPaused then
   begin
     btnContinue.visible := true;
     TUIItemsList.Current.AddControl(btnTraining, nil, nil, btnContinue, nil);

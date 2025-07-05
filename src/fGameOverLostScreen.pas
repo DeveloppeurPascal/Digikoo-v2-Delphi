@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:52:06.000+02:00
-  Signature : 59af356dea02ad7789f79d74390dce1cfd381cfb
+  File last update : 2025-07-05T09:13:36.000+02:00
+  Signature : 3b59608ddf6710cf70514e1852ed2c28cbcecef6
   ***************************************************************************
 *)
 
@@ -137,7 +137,7 @@ begin
 
   FrameResized(self);
 
-  TDigikooGameData.DefaultGameData.StopGame;
+  TDigikooGameData.Current.StopGame;
 end;
 
 procedure TGameOverLostScreen.TranslateTexts(const Language: string);
@@ -150,18 +150,16 @@ begin
     btnEndGame.Text := 'Menu'; // TODO : à remplacer par "Hall Of Fame"
     s := 'Mauvaise nouvelle !' + slinebreak + slinebreak;
     s := s + 'Vous avez perdu sur cette grille.' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Votre score : ' + TDigikooGameData.DefaultGameData.
-        score.ToString;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Votre score : ' + TDigikooGameData.Current.score.ToString;
   end
   else
   begin
     btnEndGame.Text := 'Menu'; // TODO : à remplacer par "Hall Of Fame"
     s := 'Bad news !' + slinebreak + slinebreak;
     s := 'You lost on this grid.' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Your score : ' + TDigikooGameData.DefaultGameData.
-        score.ToString;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Your score : ' + TDigikooGameData.Current.score.ToString;
   end;
   Text1.Text := s;
 end;

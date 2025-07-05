@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:51:12.000+02:00
-  Signature : 9249401c97fee51758faedbd802d4dac6bfdd910
+  File last update : 2025-07-05T09:13:20.000+02:00
+  Signature : a1f501419f149087f19bed819f5ceda90411d017
   ***************************************************************************
 *)
 
@@ -123,7 +123,7 @@ end;
 
 procedure TGameScreen.btnPauseClick(Sender: TObject);
 begin
-  TDigikooGameData.DefaultGameData.PauseGame;
+  TDigikooGameData.Current.PauseGame;
   TScene.Current := TSceneType.Home;
 end;
 
@@ -164,7 +164,7 @@ begin
   if (Sender is TNumberButton) then
   begin
     btn := Sender as TNumberButton;
-    DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+    DigikooGameData := TDigikooGameData.Current;
 
     if (btn.Color <> TNumberButtonColor.Grey) and (btn.Number >= 0) and
       (btn.Number <= 9) then
@@ -269,7 +269,7 @@ var
   j: integer;
   DigikooGameData: TDigikooGameData;
 begin
-  DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+  DigikooGameData := TDigikooGameData.Current;
 
   // Test de la validité de la grille
   // => Vérifier s'il reste des emplacements à remplir
@@ -358,7 +358,7 @@ begin
   item := TUIItemsList.Current.AddUIItem(
     procedure(const Sender: TObject)
     begin
-      TDigikooGameData.DefaultGameData.PauseGame;
+      TDigikooGameData.Current.PauseGame;
       TScene.Current := TSceneType.Home;
     end);
   item.KeyShortcuts.Add(vkEscape, #0, []);
@@ -371,7 +371,7 @@ begin
   while (flNumbers.ChildrenCount > 0) do
     flNumbers.Children[0].Free;
 
-  DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+  DigikooGameData := TDigikooGameData.Current;
   NbCases := DigikooGameData.NbCases;
   FirstTime := true;
   for i := 1 to NbCases do

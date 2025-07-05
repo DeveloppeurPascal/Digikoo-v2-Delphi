@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-03T10:43:48.982+02:00
-  Signature : 9e084ce57202935a1f5f19c77118febc2bc328ce
+  File last update : 2025-07-05T09:13:50.000+02:00
+  Signature : 3dd9296fa62a09b281806242f793b247531249db
   ***************************************************************************
 *)
 
@@ -73,7 +73,7 @@ type
     /// Training (0) or Game (1)
     /// </summary>
     property ModeDeJeu: TGameMode read FModeDeJeu write SetModeDeJeu;
-    class function DefaultGameData: TGameData; override;
+    class function Current: TDigikooGameData;
     procedure StartANewGame; override;
     procedure StartTraining(const ANbCases: int64);
     procedure NewGrid;
@@ -93,10 +93,7 @@ uses
   System.IOutils,
   System.SysUtils;
 
-var
-  LDefaultGameData: TDigikooGameData;
-
-  { TDigikooGameData }
+{ TDigikooGameData }
 
 procedure TDigikooGameData.Clear;
 var
@@ -120,11 +117,9 @@ begin
       PlayerGrid[i, j].Number := 0;
 end;
 
-class function TDigikooGameData.DefaultGameData: TGameData;
+class function TDigikooGameData.Current: TDigikooGameData;
 begin
-  if not assigned(LDefaultGameData) then
-    LDefaultGameData := TDigikooGameData.Create;
-  result := LDefaultGameData;
+  result := DefaultGameData<TDigikooGameData>;
 end;
 
 function TDigikooGameData.GetFilePath: string;
@@ -297,11 +292,8 @@ end;
 
 initialization
 
-LDefaultGameData := nil;
 randomize;
 
-finalization
-
-LDefaultGameData.Free;
+TDigikooGameData.Current.Load;
 
 end.

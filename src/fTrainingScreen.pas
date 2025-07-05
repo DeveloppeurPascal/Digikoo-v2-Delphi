@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:49:10.000+02:00
-  Signature : 384d0c5e652f1da0b00a0b32e7635bb27f3f1a18
+  File last update : 2025-07-05T09:13:34.000+02:00
+  Signature : 02c848279c6571f7da291f44755e1e661916eb03
   ***************************************************************************
 *)
 
@@ -116,8 +116,7 @@ procedure TTrainingScreen.btnNumberClick(Sender: TObject; Button: TMouseButton;
 begin
   if (Sender is TNumberButton) then
   begin
-    TDigikooGameData(TDigikooGameData.DefaultGameData)
-      .StartTraining((Sender as TNumberButton).Number);
+    TDigikooGameData.Current.StartTraining((Sender as TNumberButton).Number);
     tscene.Current := TSceneType.Game;
   end;
 end;
