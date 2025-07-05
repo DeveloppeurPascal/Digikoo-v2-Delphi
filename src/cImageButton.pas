@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T10:05:14.000+02:00
-  Signature : a8e506f6947426a4defcd9146a02cb80b2856e46
+  File last update : 2025-07-05T10:58:00.000+02:00
+  Signature : ae4074326b77fdff6b8e4d78d39b88e536c1454b
   ***************************************************************************
 *)
 
@@ -65,6 +65,7 @@ type
     constructor Create(AOwner: TComponent); override;
     property ButtonType: TImageButtonType read FButtonType write SetButtonType;
     procedure Repaint; override;
+    procedure AfterConstruction; override;
   end;
 
 var
@@ -81,6 +82,14 @@ uses
   USVGKenneyUIPack;
 
 { TImageButton }
+
+procedure TImageButton.AfterConstruction;
+begin
+  inherited;
+{$IF Defined(IOS) or Defined(ANDROID)}
+  ShadowEffect1.Enabled := false;
+{$ENDIF}
+end;
 
 constructor TImageButton.Create(AOwner: TComponent);
 begin
