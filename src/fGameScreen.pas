@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:56:28.000+02:00
-  Signature : 4d90e814c4919a17720a6caa58292f782aa0581c
+  File last update : 2025-07-05T10:10:54.000+02:00
+  Signature : d1228b0aaa7547b6f6f8bb1240126bf678e75c48
   ***************************************************************************
 *)
 
@@ -111,7 +111,7 @@ uses
 
 procedure TGameScreen.btnMusicOnOffClick(Sender: TObject);
 begin
-  if TConfig.Current.BackgroundMusicOnOff then
+  if TBackgroundMusic.Current.isOn then
   begin
     TBackgroundMusic.Current.OnOff(false);
     btnMusicOnOff.ButtonType := TImageButtonType.MusicOff;
@@ -418,7 +418,7 @@ begin
 
   RefreshGameGridSize;
 
-  if TConfig.Current.SoundEffectsOnOff then
+  if TBackgroundMusic.Current.isOn then
     btnMusicOnOff.ButtonType := TImageButtonType.MusicOn
   else
     btnMusicOnOff.ButtonType := TImageButtonType.MusicOff;
