@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:13:20.000+02:00
-  Signature : a1f501419f149087f19bed819f5ceda90411d017
+  File last update : 2025-07-05T09:56:28.000+02:00
+  Signature : 4d90e814c4919a17720a6caa58292f782aa0581c
   ***************************************************************************
 *)
 
@@ -52,7 +52,8 @@ uses
   FMX.ImgList,
   cNumberButton,
   _ButtonsAncestor,
-  cImageButton;
+  cImageButton,
+  FMX.Objects;
 
 type
   TNumberButtonGrid = array [1 .. 9, 1 .. 9] of TNumberButton;
@@ -69,6 +70,7 @@ type
     btnPause: TImageButton;
     btnMusicOnOff: TImageButton;
     btnSoundsOnOff: TImageButton;
+    lSeparator: TLine;
     procedure FrameResized(Sender: TObject);
     procedure btnMusicOnOffClick(Sender: TObject);
     procedure btnPauseClick(Sender: TObject);
@@ -382,7 +384,8 @@ begin
       FirstTime := false;
       flNumbers.Height := btn.Height;
       slGameZone.OriginalWidth := NbCases * btn.Width;
-      slGameZone.OriginalHeight := NbCases * btn.Height + flNumbers.Height;
+      slGameZone.OriginalHeight := NbCases * btn.Height + flNumbers.Height +
+        lSeparator.Height;
       glPlayerGrid.ItemWidth := btn.Width;
       glPlayerGrid.ItemHeight := btn.Height;
     end;
