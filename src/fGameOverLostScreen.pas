@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:43:20.000+02:00
-  Signature : e2e1bc5925298567aaf068572fb1f5177321fcfa
+  File last update : 2025-07-05T10:23:10.000+02:00
+  Signature : f50cbbf7c523483744c3cbca4b086621b8f1cbf6
   ***************************************************************************
 *)
 
@@ -34,7 +34,6 @@ unit fGameOverLostScreen;
 
 interface
 
-// TODO : changer couleur d'affichage du text des crédits
 // TODO : ajouter saisie du pseudo pour enregistrement du score
 
 uses

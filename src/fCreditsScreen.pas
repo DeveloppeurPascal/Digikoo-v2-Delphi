@@ -25,16 +25,14 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:42:56.000+02:00
-  Signature : 3943003ceae2673867c65b9268ac7b91165ad265
+  File last update : 2025-07-05T10:23:22.000+02:00
+  Signature : 374500e90b9acf651891f282946aaf172c5a7405
   ***************************************************************************
 *)
 
 unit fCreditsScreen;
 
 interface
-
-// TODO : changer couleur d'affichage du text des crédits
 
 uses
   System.SysUtils,

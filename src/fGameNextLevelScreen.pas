@@ -25,16 +25,14 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:43:26.000+02:00
-  Signature : fc25e874430e26c89c2bba99e1d6cb34e28dd3d7
+  File last update : 2025-07-05T10:23:16.000+02:00
+  Signature : 320349d6d35e789e4b358dc3723c0e7774897cda
   ***************************************************************************
 *)
 
 unit fGameNextLevelScreen;
 
 interface
-
-// TODO : changer couleur d'affichage du text des crédits
 
 uses
   System.SysUtils,

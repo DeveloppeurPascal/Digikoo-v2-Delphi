@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:43:32.000+02:00
-  Signature : 46d8942615db24b5efff172ba971dea1e45d3849
+  File last update : 2025-07-05T10:23:00.000+02:00
+  Signature : f921da21c611dc69ddd5c161a2d4c1c1d0128b78
   ***************************************************************************
 *)
 
@@ -34,7 +34,6 @@ unit fGameOverWinScreen;
 
 interface
 
-// TODO : changer couleur d'affichage du text des crédits
 // TODO : ajouter saisie du pseudo pour enregistrement du score
 
 uses
