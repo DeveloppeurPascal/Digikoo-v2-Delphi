@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:13:34.000+02:00
-  Signature : 02c848279c6571f7da291f44755e1e661916eb03
+  File last update : 2025-07-05T09:43:16.000+02:00
+  Signature : b062f706f5d03df58c5813315ce3344b6bc2be5a
   ***************************************************************************
 *)
 
@@ -133,6 +133,8 @@ var
   i: integer;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   PrevBtn := nil;
   for i := 0 to lNumbers.ChildrenCount - 1 do

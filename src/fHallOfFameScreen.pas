@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:51:02.000+02:00
-  Signature : ac250b9356a4f32cc7eaddde6e12d1999637fb8a
+  File last update : 2025-07-05T09:43:14.000+02:00
+  Signature : 167ca1caef7127cb3dbaeeea902bbaf820177d14
   ***************************************************************************
 *)
 
@@ -101,6 +101,8 @@ end;
 procedure THallOfFameScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnBack, nil, nil, nil, nil, true, true);
 end;

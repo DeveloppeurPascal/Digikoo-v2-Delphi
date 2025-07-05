@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:13:14.000+02:00
-  Signature : cc95c7db56098853e39d881bb8c0d24ea3755ca4
+  File last update : 2025-07-05T09:43:22.000+02:00
+  Signature : 0e01982a4e2de4030521a7d5cb178e8c6c0c5ef5
   ***************************************************************************
 *)
 
@@ -182,6 +182,8 @@ var
 {$ENDIF}
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   if TDigikooGameData.Current.IsPaused then
   begin

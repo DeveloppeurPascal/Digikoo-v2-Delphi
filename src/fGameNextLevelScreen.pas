@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:13:28.000+02:00
-  Signature : 7d33fc2569ba8191d6656040ed70d96f0f2bbbbf
+  File last update : 2025-07-05T09:43:26.000+02:00
+  Signature : fc25e874430e26c89c2bba99e1d6cb34e28dd3d7
   ***************************************************************************
 *)
 
@@ -134,6 +134,8 @@ end;
 procedure TGameNextLevelScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnPause, nil, nil, btnNextLevel, nil,
     false, true);

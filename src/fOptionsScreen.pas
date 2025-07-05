@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T08:49:38.000+02:00
-  Signature : 29623cf245ba03feb79a7ce700f4ac47c80e7c14
+  File last update : 2025-07-05T09:43:10.000+02:00
+  Signature : da864eac354622017552ce82816d25508204cb41
   ***************************************************************************
 *)
 
@@ -96,6 +96,8 @@ end;
 procedure TOptionsScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnBack, nil, nil, nil, nil, true, true);
 end;
@@ -115,6 +117,6 @@ end;
 
 initialization
 
-  tscene.RegisterScene<TOptionsScreen>(TSceneType.Options);
+tscene.RegisterScene<TOptionsScreen>(TSceneType.Options);
 
 end.

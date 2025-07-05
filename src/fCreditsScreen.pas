@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:20:16.000+02:00
-  Signature : 00f3a90bf6f8a8ebfffc9bcb1de59be7d4ceb486
+  File last update : 2025-07-05T09:42:56.000+02:00
+  Signature : 3943003ceae2673867c65b9268ac7b91165ad265
   ***************************************************************************
 *)
 
@@ -128,6 +128,8 @@ end;
 procedure TCreditsScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnBack, nil, nil, nil, nil, true, true);
 

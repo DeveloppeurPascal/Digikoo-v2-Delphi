@@ -25,8 +25,8 @@
   https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
 
   ***************************************************************************
-  File last update : 2025-07-05T09:13:30.000+02:00
-  Signature : 215dbb7299bace0e5c92649f9eabd92bf0efdbab
+  File last update : 2025-07-05T09:43:32.000+02:00
+  Signature : 46d8942615db24b5efff172ba971dea1e45d3849
   ***************************************************************************
 *)
 
@@ -129,6 +129,8 @@ end;
 procedure TGameOverWinScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnEndGame, nil, nil, nil, nil, true, true);
 
