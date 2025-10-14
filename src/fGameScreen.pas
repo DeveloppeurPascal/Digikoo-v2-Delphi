@@ -1,34 +1,34 @@
-/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2025-01-12T19:10:14.000+01:00
-/// Signature : 29cb86b6e7da9eea66858cfb457da55a7115f9de
-/// ***************************************************************************
-/// </summary>
+(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-05T10:10:54.000+02:00
+  Signature : d1228b0aaa7547b6f6f8bb1240126bf678e75c48
+  ***************************************************************************
+*)
 
 unit fGameScreen;
 
@@ -52,7 +52,8 @@ uses
   FMX.ImgList,
   cNumberButton,
   _ButtonsAncestor,
-  cImageButton;
+  cImageButton,
+  FMX.Objects;
 
 type
   TNumberButtonGrid = array [1 .. 9, 1 .. 9] of TNumberButton;
@@ -69,6 +70,7 @@ type
     btnPause: TImageButton;
     btnMusicOnOff: TImageButton;
     btnSoundsOnOff: TImageButton;
+    lSeparator: TLine;
     procedure FrameResized(Sender: TObject);
     procedure btnMusicOnOffClick(Sender: TObject);
     procedure btnPauseClick(Sender: TObject);
@@ -94,7 +96,6 @@ implementation
 {$R *.fmx}
 
 uses
-  System.Messaging,
   uConsts,
   uScene,
   uUIElements,
@@ -110,7 +111,7 @@ uses
 
 procedure TGameScreen.btnMusicOnOffClick(Sender: TObject);
 begin
-  if TConfig.Current.BackgroundMusicOnOff then
+  if TBackgroundMusic.Current.isOn then
   begin
     TBackgroundMusic.Current.OnOff(false);
     btnMusicOnOff.ButtonType := TImageButtonType.MusicOff;
@@ -124,7 +125,7 @@ end;
 
 procedure TGameScreen.btnPauseClick(Sender: TObject);
 begin
-  TDigikooGameData.DefaultGameData.PauseGame;
+  TDigikooGameData.Current.PauseGame;
   TScene.Current := TSceneType.Home;
 end;
 
@@ -165,7 +166,7 @@ begin
   if (Sender is TNumberButton) then
   begin
     btn := Sender as TNumberButton;
-    DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+    DigikooGameData := TDigikooGameData.Current;
 
     if (btn.Color <> TNumberButtonColor.Grey) and (btn.Number >= 0) and
       (btn.Number <= 9) then
@@ -270,7 +271,7 @@ var
   j: integer;
   DigikooGameData: TDigikooGameData;
 begin
-  DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+  DigikooGameData := TDigikooGameData.Current;
 
   // Test de la validité de la grille
   // => Vérifier s'il reste des emplacements à remplir
@@ -359,7 +360,7 @@ begin
   item := TUIItemsList.Current.AddUIItem(
     procedure(const Sender: TObject)
     begin
-      TDigikooGameData.DefaultGameData.PauseGame;
+      TDigikooGameData.Current.PauseGame;
       TScene.Current := TSceneType.Home;
     end);
   item.KeyShortcuts.Add(vkEscape, #0, []);
@@ -372,7 +373,7 @@ begin
   while (flNumbers.ChildrenCount > 0) do
     flNumbers.Children[0].Free;
 
-  DigikooGameData := TDigikooGameData(TDigikooGameData.DefaultGameData);
+  DigikooGameData := TDigikooGameData.Current;
   NbCases := DigikooGameData.NbCases;
   FirstTime := true;
   for i := 1 to NbCases do
@@ -383,7 +384,8 @@ begin
       FirstTime := false;
       flNumbers.Height := btn.Height;
       slGameZone.OriginalWidth := NbCases * btn.Width;
-      slGameZone.OriginalHeight := NbCases * btn.Height + flNumbers.Height;
+      slGameZone.OriginalHeight := NbCases * btn.Height + flNumbers.Height +
+        lSeparator.Height;
       glPlayerGrid.ItemWidth := btn.Width;
       glPlayerGrid.ItemHeight := btn.Height;
     end;
@@ -416,7 +418,7 @@ begin
 
   RefreshGameGridSize;
 
-  if TConfig.Current.SoundEffectsOnOff then
+  if TBackgroundMusic.Current.isOn then
     btnMusicOnOff.ButtonType := TImageButtonType.MusicOn
   else
     btnMusicOnOff.ButtonType := TImageButtonType.MusicOff;
@@ -431,18 +433,6 @@ end;
 
 initialization
 
-TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
-  procedure(const Sender: TObject; const Msg: TMessage)
-  var
-    NewScene: TGameScreen;
-  begin
-    if (Msg is TSceneFactory) and
-      ((Msg as TSceneFactory).SceneType = TSceneType.game) then
-    begin
-      NewScene := TGameScreen.Create(application.mainform);
-      NewScene.parent := application.mainform;
-      TScene.RegisterScene(TSceneType.game, NewScene);
-    end;
-  end);
+TScene.RegisterScene<TGameScreen>(TSceneType.game);
 
 end.

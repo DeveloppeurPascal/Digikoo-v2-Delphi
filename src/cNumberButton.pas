@@ -1,34 +1,34 @@
-﻿/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2024-11-03T15:30:24.000+01:00
-/// Signature : cf336d86bad2b541b9d6e02be10a754fb47b2fb9
-/// ***************************************************************************
-/// </summary>
+﻿(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-03T10:43:48.947+02:00
+  Signature : a3e8078d2f616426b8a50c43e4534ea27d449e59
+  ***************************************************************************
+*)
 
 unit cNumberButton;
 

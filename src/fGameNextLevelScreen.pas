@@ -1,40 +1,38 @@
-/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2025-01-12T16:00:40.000+01:00
-/// Signature : d46101b9e98c4196fe21be7b89aeb046b6ccd4a5
-/// ***************************************************************************
-/// </summary>
+(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-05T10:23:16.000+02:00
+  Signature : 320349d6d35e789e4b358dc3723c0e7774897cda
+  ***************************************************************************
+*)
 
 unit fGameNextLevelScreen;
 
 interface
-
-// TODO : changer couleur d'affichage du text des crédits
 
 uses
   System.SysUtils,
@@ -81,7 +79,6 @@ implementation
 {$R *.fmx}
 
 uses
-  System.Messaging,
   uConsts,
   uScene,
   uUIElements,
@@ -101,7 +98,7 @@ end;
 
 procedure TGameNextLevelScreen.btnPauseClick(Sender: TObject);
 begin
-  TDigikooGameData.DefaultGameData.PauseGame;
+  TDigikooGameData.Current.PauseGame;
   TScene.Current := TSceneType.Home;
 end;
 
@@ -135,6 +132,8 @@ end;
 procedure TGameNextLevelScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnPause, nil, nil, btnNextLevel, nil,
     false, true);
@@ -156,9 +155,9 @@ begin
     btnPause.Text := 'Pause';
     btnNextLevel.Text := 'Niveau suivant';
     s := 'Bien joué !' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Votre score : ' + TDigikooGameData.DefaultGameData.score.
-        ToString + slinebreak + slinebreak;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Votre score : ' + TDigikooGameData.Current.score.ToString +
+        slinebreak + slinebreak;
     s := s + 'Passons à la grille suivante.';
   end
   else
@@ -166,9 +165,9 @@ begin
     btnPause.Text := 'Pause';
     btnNextLevel.Text := 'Next level';
     s := 'Well done !' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Your score : ' + TDigikooGameData.DefaultGameData.score.ToString
-        + slinebreak + slinebreak;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Your score : ' + TDigikooGameData.Current.score.ToString +
+        slinebreak + slinebreak;
     s := s + 'Go to next grid.';
   end;
   Text1.Text := s;
@@ -176,18 +175,6 @@ end;
 
 initialization
 
-TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
-  procedure(const Sender: TObject; const Msg: TMessage)
-  var
-    NewScene: TGameNextLevelScreen;
-  begin
-    if (Msg is TSceneFactory) and
-      ((Msg as TSceneFactory).SceneType = TSceneType.GameNextLevel) then
-    begin
-      NewScene := TGameNextLevelScreen.Create(application.mainform);
-      NewScene.Parent := application.mainform;
-      TScene.RegisterScene(TSceneType.GameNextLevel, NewScene);
-    end;
-  end);
+TScene.RegisterScene<TGameNextLevelScreen>(TSceneType.GameNextLevel);
 
 end.

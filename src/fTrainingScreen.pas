@@ -1,34 +1,34 @@
-/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2025-01-12T15:23:48.000+01:00
-/// Signature : f1d0a3641d1f514d3056390f0275041bce045616
-/// ***************************************************************************
-/// </summary>
+(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-05T09:43:16.000+02:00
+  Signature : b062f706f5d03df58c5813315ce3344b6bc2be5a
+  ***************************************************************************
+*)
 
 unit fTrainingScreen;
 
@@ -78,7 +78,6 @@ implementation
 {$R *.fmx}
 
 uses
-  System.Messaging,
   uConsts,
   uScene,
   uUIElements,
@@ -117,8 +116,7 @@ procedure TTrainingScreen.btnNumberClick(Sender: TObject; Button: TMouseButton;
 begin
   if (Sender is TNumberButton) then
   begin
-    TDigikooGameData(TDigikooGameData.DefaultGameData)
-      .StartTraining((Sender as TNumberButton).Number);
+    TDigikooGameData.Current.StartTraining((Sender as TNumberButton).Number);
     tscene.Current := TSceneType.Game;
   end;
 end;
@@ -135,6 +133,8 @@ var
   i: integer;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   PrevBtn := nil;
   for i := 0 to lNumbers.ChildrenCount - 1 do
@@ -167,18 +167,6 @@ end;
 
 initialization
 
-TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
-  procedure(const Sender: TObject; const Msg: TMessage)
-  var
-    NewScene: TTrainingScreen;
-  begin
-    if (Msg is TSceneFactory) and
-      ((Msg as TSceneFactory).SceneType = TSceneType.Training) then
-    begin
-      NewScene := TTrainingScreen.Create(application.mainform);
-      NewScene.Parent := application.mainform;
-      tscene.RegisterScene(TSceneType.Training, NewScene);
-    end;
-  end);
+tscene.RegisterScene<TTrainingScreen>(TSceneType.Training);
 
 end.

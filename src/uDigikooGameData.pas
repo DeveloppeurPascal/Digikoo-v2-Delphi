@@ -1,34 +1,34 @@
-/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2024-11-03T19:25:24.000+01:00
-/// Signature : 64f9d6c61d491c6bfcec98572b0edadcf1584025
-/// ***************************************************************************
-/// </summary>
+(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-05T09:13:50.000+02:00
+  Signature : 3dd9296fa62a09b281806242f793b247531249db
+  ***************************************************************************
+*)
 
 unit uDigikooGameData;
 
@@ -73,7 +73,7 @@ type
     /// Training (0) or Game (1)
     /// </summary>
     property ModeDeJeu: TGameMode read FModeDeJeu write SetModeDeJeu;
-    class function DefaultGameData: TGameData; override;
+    class function Current: TDigikooGameData;
     procedure StartANewGame; override;
     procedure StartTraining(const ANbCases: int64);
     procedure NewGrid;
@@ -93,10 +93,7 @@ uses
   System.IOutils,
   System.SysUtils;
 
-var
-  LDefaultGameData: TDigikooGameData;
-
-  { TDigikooGameData }
+{ TDigikooGameData }
 
 procedure TDigikooGameData.Clear;
 var
@@ -120,11 +117,9 @@ begin
       PlayerGrid[i, j].Number := 0;
 end;
 
-class function TDigikooGameData.DefaultGameData: TGameData;
+class function TDigikooGameData.Current: TDigikooGameData;
 begin
-  if not assigned(LDefaultGameData) then
-    LDefaultGameData := TDigikooGameData.Create;
-  result := LDefaultGameData;
+  result := DefaultGameData<TDigikooGameData>;
 end;
 
 function TDigikooGameData.GetFilePath: string;
@@ -297,11 +292,8 @@ end;
 
 initialization
 
-LDefaultGameData := nil;
 randomize;
 
-finalization
-
-LDefaultGameData.Free;
+TDigikooGameData.Current.Load;
 
 end.

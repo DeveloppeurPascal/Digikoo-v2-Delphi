@@ -1,40 +1,39 @@
-﻿/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2025-01-12T16:01:26.000+01:00
-/// Signature : 2ab2a0ee5d1e605cab009db677be4f1dd67c640a
-/// ***************************************************************************
-/// </summary>
+﻿(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-05T10:23:00.000+02:00
+  Signature : f921da21c611dc69ddd5c161a2d4c1c1d0128b78
+  ***************************************************************************
+*)
 
 unit fGameOverWinScreen;
 
 interface
 
-// TODO : changer couleur d'affichage du text des crédits
 // TODO : ajouter saisie du pseudo pour enregistrement du score
 
 uses
@@ -80,7 +79,6 @@ implementation
 {$R *.fmx}
 
 uses
-  System.Messaging,
   uConsts,
   uScene,
   uUIElements,
@@ -130,6 +128,8 @@ end;
 procedure TGameOverWinScreen.ShowScene;
 begin
   inherited;
+  VertScrollBox1.ViewportPosition := TPointF.Create(0, 0);
+
   TUIItemsList.Current.NewLayout;
   TUIItemsList.Current.AddControl(btnEndGame, nil, nil, nil, nil, true, true);
 
@@ -139,7 +139,7 @@ begin
 
   FrameResized(self);
 
-  TDigikooGameData.DefaultGameData.StopGame;
+  TDigikooGameData.Current.StopGame;
 end;
 
 procedure TGameOverWinScreen.TranslateTexts(const Language: string);
@@ -153,36 +153,22 @@ begin
     s := 'Bravo !' + slinebreak + slinebreak;
     s := s + 'Rares sont ceux qui sont arrivés au bout...' + slinebreak +
       slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Votre score : ' + TDigikooGameData.DefaultGameData.
-        score.ToString;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Votre score : ' + TDigikooGameData.Current.score.ToString;
   end
   else
   begin
     btnEndGame.Text := 'Menu'; // TODO : à remplacer par "Hall Of Fame"
     s := 'Bravo !' + slinebreak + slinebreak;
     s := s + 'Few have ever reached the end...' + slinebreak + slinebreak;
-    if (TDigikooGameData.DefaultGameData.score > 0) then
-      s := s + 'Your score : ' + TDigikooGameData.DefaultGameData.
-        score.ToString;
+    if (TDigikooGameData.Current.score > 0) then
+      s := s + 'Your score : ' + TDigikooGameData.Current.score.ToString;
   end;
   Text1.Text := s;
 end;
 
 initialization
 
-TMessageManager.DefaultManager.SubscribeToMessage(TSceneFactory,
-  procedure(const Sender: TObject; const Msg: TMessage)
-  var
-    NewScene: TGameOverWinScreen;
-  begin
-    if (Msg is TSceneFactory) and
-      ((Msg as TSceneFactory).SceneType = TSceneType.GameOverWin) then
-    begin
-      NewScene := TGameOverWinScreen.Create(application.mainform);
-      NewScene.Parent := application.mainform;
-      TScene.RegisterScene(TSceneType.GameOverWin, NewScene);
-    end;
-  end);
+TScene.RegisterScene<TGameOverWinScreen>(TSceneType.GameOverWin);
 
 end.

@@ -38,14 +38,25 @@ inherited GameScreen: TGameScreen
         TabOrder = 0
       end
       object flNumbers: TFlowLayout
-        Align = Bottom
+        Align = MostBottom
         Size.Width = 50.000000000000000000
         Size.Height = 50.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 1
-        Justify = Left
-        JustifyLastLine = Left
+        Justify = Center
+        JustifyLastLine = Center
         FlowDirection = LeftToRight
+      end
+      object lSeparator: TLine
+        Align = Bottom
+        HitTest = False
+        LineType = Bottom
+        Position.Y = -3.000000000000000000
+        Size.Width = 50.000000000000000000
+        Size.Height = 3.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = claOlive
+        Stroke.Thickness = 3.000000000000000000
       end
     end
   end

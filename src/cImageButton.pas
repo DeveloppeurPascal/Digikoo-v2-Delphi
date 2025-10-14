@@ -1,34 +1,34 @@
-﻿/// <summary>
-/// ***************************************************************************
-///
-/// Digikoo
-///
-/// Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
-///
-/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-/// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-/// DEALINGS IN THE SOFTWARE.
-///
-/// ***************************************************************************
-///
-/// Author(s) :
-/// Patrick PREMARTIN
-///
-/// Site :
-/// https://digikoo.gamolf.fr/
-///
-/// Project site :
-/// https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
-///
-/// ***************************************************************************
-/// File last update : 2025-01-12T19:14:34.000+01:00
-/// Signature : a0437f3e938f6382fbfcd6cdafb09e901b987ec4
-/// ***************************************************************************
-/// </summary>
+﻿(* C2PP
+  ***************************************************************************
+
+  Digikoo
+
+  Copyright 2012-2025 Patrick Prémartin under AGPL 3.0 license.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+  DEALINGS IN THE SOFTWARE.
+
+  ***************************************************************************
+
+  Author(s) :
+  Patrick PREMARTIN
+
+  Site :
+  https://digikoo.gamolf.fr/
+
+  Project site :
+  https://github.com/DeveloppeurPascal/Digikoo-v2-Delphi
+
+  ***************************************************************************
+  File last update : 2025-07-05T10:58:00.000+02:00
+  Signature : ae4074326b77fdff6b8e4d78d39b88e536c1454b
+  ***************************************************************************
+*)
 
 unit cImageButton;
 
@@ -47,7 +47,8 @@ uses
   FMX.Dialogs,
   FMX.StdCtrls,
   _ButtonsAncestor,
-  FMX.Objects;
+  FMX.Objects,
+  FMX.Effects;
 
 type
 {$SCOPEDENUMS ON}
@@ -56,6 +57,7 @@ type
   TImageButton = class(T__ButtonAncestor)
     rBackground: TRectangle;
     rIcone: TRectangle;
+    ShadowEffect1: TShadowEffect;
   private
     FButtonType: TImageButtonType;
     procedure SetButtonType(const Value: TImageButtonType);
@@ -63,6 +65,7 @@ type
     constructor Create(AOwner: TComponent); override;
     property ButtonType: TImageButtonType read FButtonType write SetButtonType;
     procedure Repaint; override;
+    procedure AfterConstruction; override;
   end;
 
 var
@@ -80,6 +83,14 @@ uses
 
 { TImageButton }
 
+procedure TImageButton.AfterConstruction;
+begin
+  inherited;
+{$IF Defined(IOS) or Defined(ANDROID)}
+  ShadowEffect1.Enabled := false;
+{$ENDIF}
+end;
+
 constructor TImageButton.Create(AOwner: TComponent);
 begin
   inherited;
@@ -96,10 +107,10 @@ begin
       (getBitmapFromSVG(tsvgkenneyuipackindex.ButtonSquareFlat,
       rBackground.width, rBackground.height,
       rBackground.Fill.Bitmap.Bitmap.bitmapscale));
-    rIcone.margins.Top := 5;
-    rIcone.margins.Right := 5;
-    rIcone.margins.Bottom := 5;
-    rIcone.margins.Left := 5;
+    rIcone.margins.Top := 7;
+    rIcone.margins.Right := 7;
+    rIcone.margins.Bottom := 7;
+    rIcone.margins.Left := 7;
   end
   else
   begin
@@ -107,10 +118,10 @@ begin
       (getBitmapFromSVG(tsvgkenneyuipackindex.ButtonSquareDepthFlat,
       rBackground.width, rBackground.height,
       rBackground.Fill.Bitmap.Bitmap.bitmapscale));
-    rIcone.margins.Top := 5;
-    rIcone.margins.Right := 8;
-    rIcone.margins.Bottom := 8;
-    rIcone.margins.Left := 11;
+    rIcone.margins.Top := 7;
+    rIcone.margins.Right := 10;
+    rIcone.margins.Bottom := 10;
+    rIcone.margins.Left := 13;
   end;
   case FButtonType of
     TImageButtonType.None:
